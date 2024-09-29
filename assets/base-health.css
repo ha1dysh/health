@@ -29,3 +29,13 @@ h5,
 h6 {
   overflow-wrap: break-word;
 }
+
+:root {
+  --color-white: #ffffff;
+  --color-black: #231f20;
+  --color-accent-blue: #42abde;
+  --color-accent-blue-hover: #2194cc;
+  --color-grey-text: #808080;
+  --color-border: #dddddd;
+  --color-card: #f8f8f8;
+}

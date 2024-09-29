@@ -1,0 +1,276 @@
+<style>
+  .sticky-header {
+    position: {{ section.settings.sticky_header_type }};
+    top: 0;
+    background-color: var(--color-white);
+  }
+
+  .header {
+    position: sticky;
+    top: 0;
+    padding: 16px 22px;
+    display: flex;
+    flex-direction: {{ section.settings.health_logo_position }};
+    justify-content: space-between;
+    align-items: center;
+
+    & .mob-visit-market {
+      margin: 20px 22px;
+      height: 50px;
+      border: none;
+      border-radius: 100px;
+      font-weight: 500;
+      font-size: 28px;
+      color: var(--color-white);
+      background-color: var(--color-accent-blue);
+      cursor: pointer;
+
+      &:hover {
+        background-color: var(--color-accent-blue-hover);
+      }
+    }
+
+    & .desk-visit-market {
+      height: 50px;
+      width: 152px;
+      border: none;
+      border-radius: 100px;
+      font-weight: 500;
+      color: var(--color-white);
+      background-color: var(--color-accent-blue);
+      cursor: pointer;
+
+      &:hover {
+        background-color: var(--color-accent-blue-hover);
+      }
+
+      @media (max-width: 1366px) {
+        display: none;
+      }
+    }
+
+    & .open-menu-button {
+      border: none;
+      background-color: transparent;
+      cursor: pointer;
+
+      @media (min-width: 1366px) {
+        display: none;
+      }
+    }
+
+    & ul {
+      list-style-type: none;
+    }
+
+    @media (min-width: 768px) {
+      padding: 16px 62px;
+    }
+
+    @media (min-width: 1920px) {
+      padding: 16px 255px;
+    }
+  }
+
+  .mobile-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+
+    list-style-type: none;
+    background-color: white;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+
+    & > div {
+      padding: 16px 22px 62px;
+      display: flex;
+      flex-direction: {{ section.settings.health_nav_logo_position }};
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    & .close-menu-button {
+      border: none;
+      background-color: transparent;
+      cursor: pointer;
+    }
+
+    & ul {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      justify-content: space-between;
+
+      & li {
+        border-top: 1px solid var(--color-border);
+        display: flex;
+        align-items: center;
+        padding: 0 22px;
+
+        & span {
+          position: relative;
+          top: -10px;
+          color: var(--color-grey-text);
+        }
+
+        & a {
+          display: block;
+          width: 100%;
+          padding-top: 20px;
+          padding-bottom: 20px;
+          font-size: 28px;
+          color: var(--color-black);
+          text-align: center;
+          text-decoration: none;
+        }
+      }
+    }
+
+    &.open {
+      transform: translateX(0);
+    }
+
+    @media (min-width: 1366px) {
+      display: none;
+    }
+  }
+
+  .desktop-nav {
+    display: none;
+
+    & ul {
+      display: flex;
+      justify-self: space-between;
+      gap: 35px;
+
+      & a {
+        color: var(--color-grey-text);
+        text-decoration: none;
+      }
+    }
+
+    @media (min-width: 1366px) {
+      display: block;
+    }
+  }
+</style>
+
+{% javascript %}
+  const openMenuButton = document.querySelector('.open-menu-button');
+  const closeMenuButton = document.querySelector('.close-menu-button');
+  const mobileNav = document.querySelector('.mobile-nav');
+
+  openMenuButton.addEventListener('click', () => {
+    mobileNav.classList.add('open');
+  });
+  closeMenuButton.addEventListener('click', () => {
+    mobileNav.classList.remove('open');
+  });
+{% endjavascript %}
+
+<header class="header">
+  <img src="{{ 'health-logo.svg' | asset_url }}" alt="logo" loading="lazy" width="151" height="35">
+  <button class="open-menu-button">
+    <img src="{{ 'health-menu.svg' | asset_url }}" alt="menu" loading="lazy" width="32" height="32">
+  </button>
+
+  <div class="mobile-nav">
+    <div>
+      <img src="{{ 'health-logo.svg' | asset_url }}" alt="logo" loading="lazy" width="151" height="35">
+      <button class="close-menu-button">
+        <img src="{{ 'health-menu-close.svg' | asset_url }}" alt="close" loading="lazy" width="32" height="32">
+      </button>
+    </div>
+    <ul>
+      {% for link in linklists['main-menu'].links %}
+        {%- unless forloop.last -%}
+          <li>
+            <span>0{{ forloop.index }}.</span> {{ link.title | link_to: link.url }}
+          </li>
+        {% else %}
+          <li style="border-bottom: 1px solid var(--color-border)">
+            <span>0{{ forloop.index }}.</span> {{ link.title | link_to: link.url }}
+          </li>
+        {%- endunless -%}
+      {% endfor %}
+    </ul>
+    <button class="mob-visit-market">Visit market</button>
+  </div>
+
+  <div class="desktop-nav">
+    <ul>
+      {% for link in linklists['main-menu'].links %}
+        <li>
+          {{ link.title | link_to: link.url }}
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+  <button class="desk-visit-market">Visit market</button>
+</header>
+
+{% schema %}
+{
+  "name": "Health header",
+  "class": "sticky-header",
+  "settings": [
+    {
+      "label": "Logo position",
+      "type": "select",
+      "id": "health_logo_position",
+      "options": [
+        {
+          "value": "row",
+          "label": "Left"
+        },
+        {
+          "value": "row-reverse",
+          "label": "Right"
+        }
+      ]
+    },
+    {
+      "label": "Navigation menu logo position",
+      "type": "select",
+      "id": "health_nav_logo_position",
+      "options": [
+        {
+          "value": "row",
+          "label": "Left"
+        },
+        {
+          "value": "row-reverse",
+          "label": "Right"
+        }
+      ]
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "default": "main-menu",
+      "label": "t:sections.header.settings.menu.label"
+    },
+    {
+      "type": "select",
+      "id": "sticky_header_type",
+      "options": [
+        {
+          "value": "static",
+          "label": "Static"
+        },
+        {
+          "value": "sticky",
+          "label": "Sticky"
+        }
+      ],
+      "label": "Sticky header type"
+    }
+  ]
+}
+{% endschema %}

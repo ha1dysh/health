@@ -30,9 +30,18 @@
         "padding_top": 20,
         "padding_bottom": 20
       }
+    },
+    "health-header": {
+      "type": "health-header",
+      "settings": {
+        "health_logo_position": "row",
+        "health_nav_logo_position": "row",
+        "menu": "main-menu",
+        "sticky_header_type": "static"
+      }
     }
   },
   "order": [
-    "header"
+    "header", "health-header"
   ]
 }
