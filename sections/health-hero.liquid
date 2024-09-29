@@ -1,0 +1,266 @@
+{{ 'swiper-bundle.min.css' | asset_url | stylesheet_tag }}
+{{ 'swiper-bundle.min.js' | asset_url | script_tag }}
+
+{% assign margin_top = 80 %}
+{% assign margin_bottom = 20 %}
+
+<style>
+  .hero {
+    height: 900px;
+    margin-top: {{ margin_top }}px;
+    margin-bottom: {{ margin_bottom }}px;
+    background: url('{{ 'health-hero-bg.png' | asset_url }}') no-repeat;
+
+    @media (max-width: 1366px) {
+      height: 600px;
+      background-size: 100% 70%;
+    }
+    @media (max-width: 768px) {
+      height: 900px;
+      background-size: auto 50%;
+    }
+    @media (max-width: 428px) {
+      height: 800px;
+      background-size: auto 25%;
+    }
+  }
+
+  .swiper-container {
+      width: 100%;
+      margin: 0 auto;
+      {% comment %} padding: 50px 5px; {% endcomment %}
+  }
+
+  .swiper-pagination {
+      position: relative !important;
+      margin-top: 20px;
+  }
+
+  {% comment %} .testimonial-box {
+    width: 400px;
+    padding: 17px 25px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 20px;
+  } {% endcomment %}
+
+  .testimonial-text .heading-inner {
+    font-size: 25px;
+  }
+
+  .testimonial-main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .testimonial-box img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .testimonial-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+  }
+
+  .swiper-slide {
+    margin: 10px;
+  }
+
+  .testimonial-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    gap: 20px;
+    padding: 30px 40px;
+    margin: auto;
+    overflow:hidden;
+    flex-direction: column;
+  }
+
+  @media only screen and (max-width: 768px) {
+    {% comment %} .testimonial-box {
+      width: 100% !important;
+    } {% endcomment %}
+
+    .testimonial-main {
+      flex-direction: column;
+    }
+  }
+
+  .swiper-wrapper {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .swiper-container {
+    width: 100%;
+  }
+
+  .swiper-slide {
+    margin: 10px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  @media screen and (max-width: 768px) {
+    .swiper-container {
+      width: 100%;
+    }
+
+    .swiper-slide {
+      width: 100% !important;
+    }
+  }
+</style>
+
+{% comment %}
+  remove classes:
+{% endcomment %}
+
+<div class="hero-wrapper">
+  <h1>THE HEALTH PROJECT</h1>
+
+  <div class="testimonial-container">
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+        {% for block in section.blocks %}
+          <div class="swiper-slide">
+            {% comment %} <div class="testimonial-box"> {% endcomment %}
+            <img src="{{ block.settings.image | image_url: width: 300 }}" width="300" height="300">
+            <div class="testimonial-text">
+              <h1
+                class="heading-inner"
+                style="font-weight: {{ block.settings.slide-font-weight }}; font-size: {{ block.settings.slide-heading-font-size }}px"
+              >
+                {{ block.settings['slide-text'] }}
+              </h1>
+              <p style="font-size: {{ block.settings.desc-size }}px;">
+                {{ block.settings.desc }}
+              </p>
+              {% comment %} </div> {% endcomment %}
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+
+      <div class="arrows-nav">
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+  </div>
+</div>
+
+{% comment %}
+  remove from settings id:
+{% endcomment %}
+
+{% javascript %}
+  new Swiper('.swiper-container', {
+    direction: 'horizontal',
+    loop: true,
+    slidesPerView: 1,
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+    autoplay: {
+      delay: 2000,
+    },
+  });
+{% endjavascript %}
+
+{% schema %}
+{
+  "name": "Health hero",
+  "class": "hero",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Hero image"
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Slide",
+      "type": "slide",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Testimonial image"
+        },
+        {
+          "type": "text",
+          "id": "slide-text",
+          "label": "Enter Heading",
+          "default": "Your heading"
+        },
+        {
+          "type": "textarea",
+          "id": "desc",
+          "label": "Enter your description here"
+        },
+        {
+          "type": "range",
+          "id": "slide-heading-font-size",
+          "label": "Slide Heading font size",
+          "max": 50,
+          "min": 10,
+          "default": 20
+        },
+        {
+          "type": "select",
+          "id": "slide-font-weight",
+          "label": "Font Weight",
+          "options": [
+            {
+              "value": "normal",
+              "label": "Normal"
+            },
+            {
+              "value": "bold",
+              "label": "Bold"
+            },
+            {
+              "value": "bolder",
+              "label": "Bolder"
+            }
+          ],
+          "default": "normal"
+        },
+        {
+          "type": "range",
+          "id": "desc-size",
+          "label": "Description size",
+          "max": 50,
+          "min": 10,
+          "default": 15
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "testimonial slider",
+      "category": "custom"
+    }
+  ]
+}
+{% endschema %}
