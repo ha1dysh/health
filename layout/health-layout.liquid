@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {{ content_for_header }}
+    {{ 'base-health.css' | asset_url | stylesheet_tag }}
+
+    {% style %}
+      {{ settings.type_body_font | font_face: font_display: 'swap' }}
+      {{ settings.type_header_font | font_face: font_display: 'swap' }}
+        body {
+           font-family: {{settings.type_body_font.family}}
+         }
+    {% endstyle %}
+
+    <title>The Health Project</title>
+  </head>
+  <body>
+    {% sections 'header-group' %}
+
+    <main>
+      {{ content_for_layout }}
+    </main>
+
+    {% sections 'footer-group' %}
+  </body>
+</html>
