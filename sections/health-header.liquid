@@ -2,11 +2,11 @@
   .sticky-header {
     position: {{ section.settings.sticky_header_type }};
     top: 0;
+    z-index: 10;
     background-color: var(--color-white);
   }
 
   .header {
-    position: sticky;
     top: 0;
     padding: 16px 22px;
     display: flex;
@@ -14,35 +14,28 @@
     justify-content: space-between;
     align-items: center;
 
-    & .mob-visit-market {
-      margin: 20px 22px;
+    & .mob-visit-market,
+    & .desk-visit-market {
       height: 50px;
-      border: none;
       border-radius: 100px;
       font-weight: 500;
-      font-size: 28px;
-      color: var(--color-white);
-      background-color: var(--color-accent-blue);
+      border: none;
       cursor: pointer;
+      background-color: var(--color-accent-blue);
+      color: var(--color-white);
 
       &:hover {
         background-color: var(--color-accent-blue-hover);
       }
     }
 
-    & .desk-visit-market {
-      height: 50px;
-      width: 152px;
-      border: none;
-      border-radius: 100px;
-      font-weight: 500;
-      color: var(--color-white);
-      background-color: var(--color-accent-blue);
-      cursor: pointer;
+    & .mob-visit-market {
+      margin: 20px 22px;
+      font-size: 28px;
+    }
 
-      &:hover {
-        background-color: var(--color-accent-blue-hover);
-      }
+    & .desk-visit-market {
+      width: 152px;
 
       @media (max-width: 1366px) {
         display: none;
@@ -107,6 +100,7 @@
       flex-direction: column;
       flex-grow: 1;
       justify-content: space-between;
+      background-color: white;
 
       & li {
         border-top: 1px solid var(--color-border);
