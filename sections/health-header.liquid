@@ -17,16 +17,6 @@
     & .mob-visit-market,
     & .desk-visit-market {
       height: 50px;
-      border-radius: 100px;
-      font-weight: 500;
-      border: none;
-      cursor: pointer;
-      background-color: var(--color-accent-blue);
-      color: var(--color-white);
-
-      &:hover {
-        background-color: var(--color-accent-blue-hover);
-      }
     }
 
     & .mob-visit-market {
@@ -195,7 +185,7 @@
         {%- endunless -%}
       {% endfor %}
     </ul>
-    <button class="mob-visit-market">Visit market</button>
+    <button class="button-primary mob-visit-market">Visit market</button>
   </div>
 
   <div class="desktop-nav">
@@ -207,7 +197,7 @@
       {% endfor %}
     </ul>
   </div>
-  <button class="desk-visit-market">Visit market</button>
+  <button class="button-primary desk-visit-market">Visit market</button>
 </header>
 
 {% schema %}

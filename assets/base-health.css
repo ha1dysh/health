@@ -39,3 +39,17 @@ h6 {
   --color-border: #dddddd;
   --color-card: #f8f8f8;
 }
+
+.button-primary {
+  height: 50px;
+  border: none;
+  border-radius: 100px;
+  font-weight: 500;
+  color: var(--color-white);
+  background-color: var(--color-accent-blue);
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--color-accent-blue-hover);
+  }
+}
