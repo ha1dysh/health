@@ -190,7 +190,7 @@
 
   <div class="desktop-nav">
     <ul>
-      {% for link in linklists['main-menu'].links %}
+      {% for link in section.settings.menu.links %}
         <li>
           {{ link.title | link_to: link.url }}
         </li>
