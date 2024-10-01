@@ -53,3 +53,8 @@ h6 {
     background-color: var(--color-accent-blue-hover);
   }
 }
+
+body {
+  max-width: 1920px;
+  margin: 0 auto;
+}

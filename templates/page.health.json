@@ -67,9 +67,16 @@
       "settings": {
         "autoplay_delay": 20
       }
+    },
+    "health-collections": {
+      "type": "health-collections",
+      "settings": {
+        "margin_top": 100,
+        "margin_bottom": 100
+      }
     }
   },
   "order": [
-    "health-hero"
+    "health-hero", "health-collections"
   ]
 }

@@ -1,0 +1,267 @@
+{{ 'swiper-bundle.min.css' | asset_url | stylesheet_tag }}
+{{ 'swiper-bundle.min.js' | asset_url | script_tag }}
+
+<style>
+  .collections {
+    margin-top: {{ section.settings.margin_top }}px;
+    margin-bottom: {{ section.settings.margin_bottom }}px;
+
+    & .titles-wrapper {
+      margin-bottom: 20px;
+      padding: 0 22px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0 20px;
+    }
+
+    & .collection-title {
+      border: none;
+      font-size: 24px;
+      color: var(--color-grey-text);
+      background-color: transparent;
+      cursor: pointer;
+
+      &.active {
+        color: var(--color-black);
+      }
+    }
+
+    & .count {
+      position: relative;
+      top: -5px;
+      font-weight: 500;
+      color: var(--color-grey-text);
+    }
+
+    & .description {
+      display: none;
+      margin-bottom: 20px;
+      padding: 0 22px;
+      color: var(--color-grey-text);
+
+      &.active {
+        display: block;
+      }
+    }
+
+    & .swiper-collection {
+      display: none;
+      overflow: hidden;
+
+      &.active {
+        display: block;
+      }
+
+      & .swiper-controls {
+        position: static;
+        width: 100%;
+        margin-top: 30px;
+        display: {% if section.settings.show_slider_controls %}flex{% else %}none{% endif %};
+        justify-content: center;
+        gap: 20px;
+
+        & .swiper-collection-prev,
+        & .swiper-collection-next {
+          position: relative;
+          right: 0;
+          width: 20px;
+          height: 20px;
+          padding: 30px;
+          border-radius: 50%;
+          outline-offset: -5px;
+          cursor: pointer;
+          &:after {
+            content: '';
+          }
+        }
+        & .swiper-collection-prev {
+          background: url('{{ 'health-arrow-left.svg' | asset_url }}') no-repeat center;
+          background-color: #F8F8F8;
+        }
+        & .swiper-collection-next {
+          background: url('{{ 'health-arrow-right.svg' | asset_url }}') no-repeat center;
+          background-color: #F8F8F8;
+        }
+      }
+
+      & .swiper-slide {
+        width: 320px;
+        height: 536px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-radius: 12px;
+        background-color: #F8F8F8;
+
+        @media (min-width: 1366px) {
+          width: 380px;
+        }
+
+        & .title {
+          margin-top: 40px;
+          font-weight: 500;
+
+          @media (min-width: 768px) {
+            font-size: 18px;
+          }
+        }
+
+        & .weight {
+          margin-top: 15px;
+          color: var(--color-grey-text);
+        }
+
+        & .price {
+          margin-top: 25px;
+          color: var(--color-accent-blue);
+          font-weight: 500;
+          font-size: 24px;
+        }
+      }
+    }
+  }
+</style>
+
+{% javascript %}
+  new Swiper('.swiper-collection', {
+    direction: 'horizontal',
+    loop: true,
+    slidesPerView: 1.2,
+    spaceBetween: 8,
+    freeMode: true,
+    navigation: {
+      nextEl: '.swiper-collection-next',
+      prevEl: '.swiper-collection-prev',
+    },
+    breakpoints: {
+      768: {
+        slidesPerView: 2.2,
+      },
+      1366: {
+        slidesPerView: 3.2,
+      },
+      1920: {
+        slidesPerView: 4.2,
+      },
+    },
+  });
+
+  const collections = document.querySelectorAll('.collections .collection-title');
+
+  collections.forEach((collection) => {
+    collection.addEventListener('click', () => {
+      collections.forEach((collection) => collection.classList.remove('active'));
+      collection.classList.add('active');
+
+      const collectionId = collection.dataset.collectionId;
+      const descriptions = document.querySelectorAll('.collections .description');
+
+      descriptions.forEach((description) =>
+        description.dataset.collectionId === collectionId
+          ? description.classList.add('active')
+          : description.classList.remove('active')
+      );
+
+      const swiperCollections = document.querySelectorAll('.collections .swiper-collection');
+      swiperCollections.forEach((swiperCollection) =>
+        swiperCollection.dataset.collectionId === collectionId
+          ? swiperCollection.classList.add('active')
+          : swiperCollection.classList.remove('active')
+      );
+    });
+  });
+{% endjavascript %}
+
+<div>
+  <div class="titles-wrapper">
+    {%- for collection in section.settings.collections -%}
+      {% if forloop.first %} {% continue %} {% endif %}
+      <div>
+        <button
+          class="collection-title {% if forloop.index0 == 1 %}active{% endif %}"
+          data-collection-id="{{ collection.id }}"
+        >
+          {{ collection.title }}
+        </button>
+        <span class="count">{{ collection.all_products_count }}</span>
+      </div>
+    {%- endfor -%}
+  </div>
+
+  {% for collection in section.settings.collections %}
+    {% if forloop.first %} {% continue %} {% endif %}
+
+    <p
+      class="description {% if forloop.index0 == 1 %}active{% endif %}"
+      data-collection-id="{{ collection.id }}"
+    >
+      {{ collection.description | strip_html }}
+    </p>
+  {% endfor %}
+
+  {% for collection in section.settings.collections %}
+    {% if forloop.first %} {% continue %} {% endif %}
+
+    <div
+      class="swiper-collection {% if forloop.index0 == 1 %}active{% endif %}"
+      data-collection-id="{{ collection.id }}"
+    >
+      <div class="swiper-wrapper">
+        {% for product in collection.products %}
+          <div class="swiper-slide">
+            {{ product | image_url: width: 380 | image_tag }}
+
+            <div class="title">{{ product.title }}</div>
+            <div class="weight">
+              {{ product.variants.first.weight }}
+              {{ product.variants.first.weight_unit }}
+            </div>
+            <div class="price">{{ product.price | money }}</div>
+          </div>
+        {% endfor %}
+      </div>
+
+      <div class="swiper-controls">
+        <div class="swiper-collection-prev"></div>
+        <div class="swiper-collection-next"></div>
+      </div>
+    </div>
+  {% endfor %}
+</div>
+
+{% schema %}
+{
+  "name": "Health collections",
+  "class": "collections",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "collection_list",
+      "id": "collections",
+      "label": "Collections"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_slider_controls",
+      "label": "Show slider controls"
+    },
+    {
+      "type": "range",
+      "id": "margin_top",
+      "label": "Collections margin top",
+      "max": 100,
+      "min": 0,
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom",
+      "label": "Collections margin bottom",
+      "max": 100,
+      "min": 0,
+      "default": 20
+    }
+  ]
+}
+{% endschema %}
