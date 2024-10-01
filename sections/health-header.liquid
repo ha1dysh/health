@@ -173,7 +173,7 @@
       </button>
     </div>
     <ul>
-      {% for link in linklists['main-menu'].links %}
+      {% for link in section.settings.menu.links %}
         {%- unless forloop.last -%}
           <li>
             <span>0{{ forloop.index }}.</span> {{ link.title | link_to: link.url }}
