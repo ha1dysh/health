@@ -80,10 +80,23 @@
         "margin_top": 100,
         "margin_bottom": 100
       }
+    },
+    "health-top-sellers": {
+      "type": "health-top-sellers",
+      "settings": {
+        "title": "Top sellers",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur a nunc ultrices, feugiat augue vitae, accumsan quam.",
+        "product_list": [
+          "whey-protein",
+          "creatine-monohydrate",
+          "mass-gainer"
+        ]
+      }
     }
   },
   "order": [
     "health-hero",
-    "health-collections"
+    "health-collections",
+    "health-top-sellers"
   ]
 }

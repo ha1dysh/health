@@ -87,7 +87,9 @@
 
       & .swiper-slide {
         width: 320px;
-        height: 536px;
+        height: auto;
+        min-height: 536px;
+        padding: 20px 0;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -128,6 +130,7 @@
     direction: 'horizontal',
     loop: true,
     slidesPerView: 1.2,
+    centeredSlides: true,
     spaceBetween: 8,
     freeMode: true,
     navigation: {
