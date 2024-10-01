@@ -71,12 +71,19 @@
     "health-collections": {
       "type": "health-collections",
       "settings": {
+        "collections": [
+          "perfomance",
+          "protein",
+          "wellbeing"
+        ],
+        "show_slider_controls": true,
         "margin_top": 100,
         "margin_bottom": 100
       }
     }
   },
   "order": [
-    "health-hero", "health-collections"
+    "health-hero",
+    "health-collections"
   ]
 }
