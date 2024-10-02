@@ -17,6 +17,7 @@
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/health-creatine.png",
+            "product": "",
             "slide-text": "Your heading one",
             "desc": "description one",
             "slide-heading-font-size": 20,
@@ -28,6 +29,7 @@
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/creatine-monohydrate.png",
+            "product": "",
             "slide-text": "Your heading two",
             "desc": "description two",
             "slide-heading-font-size": 20,
@@ -39,6 +41,7 @@
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/health-creatine.png",
+            "product": "",
             "slide-text": "Your heading three",
             "desc": "description three",
             "slide-heading-font-size": 20,
@@ -50,6 +53,7 @@
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/health-creatine.png",
+            "product": "",
             "slide-text": "Your heading four",
             "desc": "description four",
             "slide-heading-font-size": 20,
@@ -65,7 +69,9 @@
         "slide_E7zQVg"
       ],
       "settings": {
-        "autoplay_delay": 20
+        "background_image": "shopify://shop_images/health-hero-bg.png",
+        "autoplay_delay": 20,
+        "margin_bottom": 20
       }
     },
     "health-collections": {
