@@ -27,7 +27,7 @@
         "slide_H8aNT7": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/health-creatine.png",
+            "image": "shopify://shop_images/creatine-monohydrate.png",
             "slide-text": "Your heading two",
             "desc": "description two",
             "slide-heading-font-size": 20,
@@ -90,7 +90,9 @@
           "whey-protein",
           "creatine-monohydrate",
           "mass-gainer"
-        ]
+        ],
+        "margin_top": 20,
+        "margin_bottom": 20
       }
     }
   },
