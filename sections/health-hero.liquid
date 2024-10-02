@@ -1,13 +1,9 @@
 {{ 'swiper-bundle.min.css' | asset_url | stylesheet_tag }}
 {{ 'swiper-bundle.min.js' | asset_url | script_tag }}
 
-{% assign margin_top = 20 %}
-{% assign margin_bottom = 20 %}
-
 <style>
   .hero {
-    margin-top: {{ margin_top }}px;
-    margin-bottom: {{ margin_bottom }}px;
+    margin-bottom: {{ section.settings.margin_bottom }}px;
     background: url('{{ 'health-hero-bg.png' | asset_url }}') no-repeat;
     background-size: auto 25%;
 
@@ -142,6 +138,12 @@
       },
     },
   });
+
+  const buyNowBtn = document.querySelector('.buy-now-btn');
+  const productId = buyNowBtn.dataset.productId;
+  console.log('productId', productId);
+
+  const formData = { item: [{ id: 1, quantity: 1 }] };
 {% endjavascript %}
 
 <div class="swiper-hero" data-delay="{{ section.settings.autoplay_delay }}">
@@ -161,7 +163,12 @@
           <p style="font-size: {{ block.settings.desc-size }}px;">{{ block.settings.desc }}</p>
 
           <div class="buy-now-controls-wrapper">
-            <button class="button-primary buy-now">Buy now</button>
+            <button
+              class="button-primary buy-now"
+              data-product-id="{{ block.settings.product.id }}"
+            >
+              Buy now
+            </button>
             <div class="arrows-nav">
               <div class="swiper-button-next">
                 <svg class="autoplay-progress" viewBox="0 0 48 48">
@@ -195,6 +202,14 @@
       "min": 1,
       "max": 60,
       "default": 20
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom",
+      "label": "Margin top",
+      "max": 100,
+      "min": 0,
+      "default": 20
     }
   ],
   "blocks": [
@@ -206,6 +221,11 @@
           "type": "image_picker",
           "id": "image",
           "label": "Testimonial image"
+        },
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Link to product"
         },
         {
           "type": "text",
