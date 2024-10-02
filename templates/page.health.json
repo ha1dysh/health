@@ -92,11 +92,8 @@
       "settings": {
         "title": "Top sellers",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur a nunc ultrices, feugiat augue vitae, accumsan quam.",
-        "product_list": [
-          "whey-protein",
-          "creatine-monohydrate",
-          "mass-gainer"
-        ],
+        "collection": "top-sellers",
+        "show_slider_controls": true,
         "margin_top": 20,
         "margin_bottom": 20
       }

@@ -1,13 +1,165 @@
-<style></style>
+<style>
+  .top-sellers {
+    padding: 0 22px;
+
+    & .section-title {
+      font-size: 24px;
+      font-weight: 500;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    & .section-description {
+      color: var(--color-grey-text);
+      margin-bottom: 40px;
+      text-align: center;
+    }
+
+    & .swiper-top-sellers {
+      overflow: hidden;
+
+      @media (min-width: 1366px) {
+        overflow: auto;
+      }
+
+      & .swiper-wrapper {
+        margin: 0 auto;
+
+        @media (min-width: 1366px) {
+          max-width: 1410px;
+          display: flex;
+          justify-content: center;
+          flex-wrap: wrap;
+          gap: 20px;
+        }
+      }
+
+      & .swiper-slide {
+        width: 385px;
+        height: auto;
+        padding: 35px 20px 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        border-radius: 12px;
+
+        @media (min-width: 1366px) {
+          max-width: 670px;
+          width: auto;
+        }
+
+        & h3 {
+          font-size: 18px;
+          font-weight: 500;
+        }
+
+        & img {
+          margin: 0 auto;
+        }
+      }
+
+      & .swiper-top-sellers-controls {
+        position: static;
+        width: 100%;
+        margin-top: 30px;
+        display: {% if section.settings.show_slider_controls %}flex{% else %}none{% endif %};
+        justify-content: center;
+        gap: 20px;
+
+        @media (min-width: 1366px) {
+          display: none;
+        }
+
+        & .swiper-top-sellers-prev,
+        & .swiper-top-sellers-next {
+          position: relative;
+          right: 0;
+          width: 20px;
+          height: 20px;
+          padding: 30px;
+          border-radius: 50%;
+          outline-offset: -5px;
+          cursor: pointer;
+          &:after {
+            content: '';
+          }
+        }
+        & .swiper-top-sellers-prev {
+          background: url('{{ 'health-arrow-left.svg' | asset_url }}') no-repeat center;
+          background-color: #F8F8F8;
+        }
+        & .swiper-top-sellers-next {
+          background: url('{{ 'health-arrow-right.svg' | asset_url }}') no-repeat center;
+          background-color: #F8F8F8;
+        }
+      }
+
+    }
+  }
+</style>
+
+{% javascript %}
+  new Swiper('.swiper-top-sellers', {
+    direction: 'horizontal',
+    loop: true,
+    slidesPerView: 1,
+    spaceBetween: 14,
+    navigation: {
+      nextEl: '.swiper-top-sellers-next',
+      prevEl: '.swiper-top-sellers-prev',
+    },
+    breakpoints: {
+      768: {
+        slidesPerView: 2.2,
+        spaceBetween: 20,
+      },
+      1366: {
+        slidesPerView: 'auto',
+        spaceBetween: 0,
+        noSwiping: true,
+        allowSlidePrev: false,
+        allowSlideNext: false,
+      },
+    },
+  });
+{% endjavascript %}
 
 <div>
-  <h2>Top sellers</h2>
+  <h2 class="section-title">{{ section.settings.title }}</h2>
+  <p class="section-description">{{ section.settings.description }}</p>
 
-  {%- for product in section.settings.product_list -%}
-    <h2>{{ product.title }}</h2>
-    <p>{{ product.description }}</p>
-    {{ product | image_url: width: 380 | image_tag }}
-  {%- endfor -%}
+  <div class="swiper-top-sellers">
+    <div class="swiper-wrapper">
+      {% for product in collections[section.settings.collection].products %}
+        {% if product.metafields.custom.top_seller != blank %}
+          {% assign color = product.metafields.custom.top_seller %}
+        {% else %}
+          {% assign color = '#333333' %}
+        {% endif %}
+
+        <a
+          class="swiper-slide"
+          style="background-color: {{ color }}14"
+          href="{{ product.url }}"
+        >
+          <div>
+            <h3 style="color: {{ color }};">
+              {{ product.title }}
+            </h3>
+            <p style="color: {{ color }};">
+              {{ product.description | strip_html }}
+            </p>
+          </div>
+          {{ product | image_url: width: 380 | image_tag }}
+        </a>
+      {% endfor %}
+    </div>
+
+    <div class="swiper-top-sellers-controls">
+      <div class="swiper-top-sellers-prev"></div>
+      <div class="swiper-top-sellers-next"></div>
+    </div>
+  </div>
 </div>
 
 {% schema %}
@@ -29,9 +181,14 @@
       "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur a nunc ultrices, feugiat augue vitae, accumsan quam."
     },
     {
-      "type": "product_list",
-      "id": "product_list",
-      "label": "Product list"
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_slider_controls",
+      "label": "Show slider controls"
     },
     {
       "type": "range",
