@@ -4,7 +4,7 @@
 <style>
   .hero {
     margin-bottom: {{ section.settings.margin_bottom }}px;
-    background: url('{{ 'health-hero-bg.png' | asset_url }}') no-repeat;
+    background: url('{{ section.settings.background_image | image_url }}') no-repeat;
     background-size: auto 25%;
 
     @media (min-width: 768px) {
@@ -139,11 +139,23 @@
     },
   });
 
-  const buyNowBtn = document.querySelector('.buy-now-btn');
-  const productId = buyNowBtn.dataset.productId;
-  console.log('productId', productId);
+  const buyNowButtons = document.querySelectorAll('.hero .buy-now');
 
-  const formData = { item: [{ id: 1, quantity: 1 }] };
+  buyNowButtons.forEach(async (buyNowBtn) => {
+    buyNowBtn.addEventListener('click', async (e) => {
+      const formData = { items: [{ id: Number(e.target.dataset.productId), quantity: 1 }] };
+
+      await fetch(window.Shopify.routes.root + 'cart/add.js', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      }).catch((error) => {
+        console.error('Error:', error);
+      });
+
+      window.location.href = '/cart';
+    });
+  });
 {% endjavascript %}
 
 <div class="swiper-hero" data-delay="{{ section.settings.autoplay_delay }}">
@@ -165,7 +177,7 @@
           <div class="buy-now-controls-wrapper">
             <button
               class="button-primary buy-now"
-              data-product-id="{{ block.settings.product.id }}"
+              data-product-id="{{ block.settings.product.variants.first.id }}"
             >
               Buy now
             </button>
@@ -193,7 +205,7 @@
     {
       "type": "image_picker",
       "id": "background_image",
-      "label": "Hero image"
+      "label": "Background image"
     },
     {
       "type": "range",
