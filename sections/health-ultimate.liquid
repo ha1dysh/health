@@ -1,0 +1,77 @@
+<style>
+  .ultimate {
+    margin-bottom: {{ section.settings.margin_bottom }}px;
+  }
+</style>
+<div>
+  <h1>Ultimate product</h1>
+  <pre>
+    pre:
+
+    blocks: {{ section.blocks.size }}
+
+    
+</pre>
+</div>
+
+{% schema %}
+{
+  "name": "Health ultimate product",
+  "class": "ultimate",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "select",
+      "id": "image_position",
+      "label": "Image position",
+      "options": [
+        { "value": "row", "label": "Left" },
+        { "value": "row-reverse", "label": "Right" }
+      ]
+    },
+    {
+      "type": "checkbox",
+      "id": "show_slider_controls",
+      "label": "Show slider controls"
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom",
+      "label": "Margin bottom",
+      "max": 100,
+      "min": 0,
+      "default": 20
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Product slide",
+      "type": "product-slide",
+      "settings": [
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Product"
+        },
+        {
+          "type": "text",
+          "id": "product_title",
+          "label": "Product title",
+          "default": "Ultimate product"
+        },
+        {
+          "type": "text",
+          "id": "product_description",
+          "label": "Product description"
+        },
+        {
+          "type": "richtext",
+          "id": "key_features",
+          "label": "Key features",
+          "default": "- High quality\n - Unreal value for money\n - Delicious flavors\n"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

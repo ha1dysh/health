@@ -97,11 +97,20 @@
         "margin_top": 20,
         "margin_bottom": 20
       }
+    },
+    "health-ultimate": {
+      "type": "health-ultimate",
+      "settings": {
+        "image_position": "row",
+        "show_slider_controls": true,
+        "margin_bottom": 20
+      },
     }
   },
   "order": [
     "health-hero",
     "health-collections",
-    "health-top-sellers"
+    "health-top-sellers",
+    "health-ultimate"
   ]
 }
