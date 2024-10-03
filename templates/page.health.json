@@ -43,7 +43,7 @@
         "slide_bcVbeR"
       ],
       "settings": {
-        "background_image": "shopify://shop_images/whey-protein.png",
+        "background_image": "shopify://shop_images/health-hero-bg.png",
         "autoplay_delay": 20,
         "margin_bottom": 20
       }
