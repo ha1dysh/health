@@ -10,70 +10,6 @@
 {
   "layout": "health-layout",
   "sections": {
-    "health-hero": {
-      "type": "health-hero",
-      "blocks": {
-        "slide_ixR7Jj": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/health-creatine.png",
-            "product": "the-health-project-essential-stack",
-            "slide-text": "Your heading one",
-            "desc": "description one",
-            "slide-heading-font-size": 20,
-            "slide-font-weight": "normal",
-            "desc-size": 15
-          }
-        },
-        "slide_H8aNT7": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/creatine-monohydrate.png",
-            "product": "",
-            "slide-text": "Your heading two",
-            "desc": "description two",
-            "slide-heading-font-size": 20,
-            "slide-font-weight": "normal",
-            "desc-size": 15
-          }
-        },
-        "slide_RjfLjm": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/health-creatine.png",
-            "product": "",
-            "slide-text": "Your heading three",
-            "desc": "description three",
-            "slide-heading-font-size": 20,
-            "slide-font-weight": "normal",
-            "desc-size": 15
-          }
-        },
-        "slide_E7zQVg": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/health-creatine.png",
-            "product": "",
-            "slide-text": "Your heading four",
-            "desc": "description four",
-            "slide-heading-font-size": 20,
-            "slide-font-weight": "normal",
-            "desc-size": 15
-          }
-        }
-      },
-      "block_order": [
-        "slide_ixR7Jj",
-        "slide_H8aNT7",
-        "slide_RjfLjm",
-        "slide_E7zQVg"
-      ],
-      "settings": {
-        "background_image": "shopify://shop_images/health-hero-bg.png",
-        "autoplay_delay": 20,
-        "margin_bottom": 20
-      }
-    },
     "health_hero_Bxjqx9": {
       "type": "health-hero",
       "blocks": {
@@ -107,6 +43,7 @@
         "slide_bcVbeR"
       ],
       "settings": {
+        "background_image": "shopify://shop_images/health-hero-bg.png",
         "autoplay_delay": 20,
         "margin_bottom": 20
       }
@@ -137,7 +74,6 @@
     }
   },
   "order": [
-    "health-hero",
     "health_hero_Bxjqx9",
     "health-collections",
     "health-top-sellers"
