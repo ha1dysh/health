@@ -1,0 +1,121 @@
+.top-sellers {
+  padding: 0 22px;
+
+  & .section-title {
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  & .section-description {
+    color: var(--color-grey-text);
+    margin-bottom: 40px;
+    text-align: center;
+  }
+
+  & .swiper-top-sellers {
+    overflow: hidden;
+
+    @media (min-width: 1366px) {
+      overflow: auto;
+    }
+
+    & .swiper-wrapper {
+      margin: 0 auto;
+
+      @media (min-width: 1366px) {
+        max-width: 1410px;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+    }
+
+    & .swiper-slide {
+      width: 385px;
+      height: auto;
+      padding: 35px 20px 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border-radius: 12px;
+
+      @media (min-width: 1366px) {
+        max-width: 670px;
+        width: auto;
+      }
+
+      & .product-title-wrapper {
+        margin-bottom: 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      & .product-title {
+        font-size: 18px;
+        font-weight: 600;
+
+        @media (min-width: 1366px) {
+          font-size: 32px;
+        }
+      }
+
+      & .arrow-wrapper {
+        width: 50px;
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        background-color: var(--color-white);
+
+        & .arrow {
+          width: 28px;
+          height: 28px;
+        }
+      }
+
+      & .product-image {
+        margin: 0 auto;
+      }
+    }
+
+    & .swiper-top-sellers-controls {
+      position: static;
+      width: 100%;
+      margin-top: 30px;
+      justify-content: center;
+      gap: 20px;
+
+      @media (min-width: 1366px) {
+        display: none;
+      }
+
+      & .swiper-top-sellers-prev,
+      & .swiper-top-sellers-next {
+        position: relative;
+        right: 0;
+        width: 20px;
+        height: 20px;
+        padding: 30px;
+        border-radius: 50%;
+        outline-offset: -5px;
+        cursor: pointer;
+        &:after {
+          content: '';
+        }
+      }
+      & .swiper-top-sellers-prev {
+        background: url('health-arrow-left.svg') no-repeat center center;
+        background-color: #f8f8f8;
+      }
+      & .swiper-top-sellers-next {
+        background: url('health-arrow-right.svg') no-repeat center center;
+        background-color: #f8f8f8;
+      }
+    }
+  }
+}
