@@ -1,12 +1,12 @@
 /*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
 {
   "layout": "health-layout",
   "sections": {
@@ -38,7 +38,10 @@
           }
         }
       },
-      "block_order": ["slide_QWBpTG", "slide_bcVbeR"],
+      "block_order": [
+        "slide_QWBpTG",
+        "slide_bcVbeR"
+      ],
       "settings": {
         "background_image": "shopify://shop_images/health-hero-bg.png",
         "autoplay_delay": 20,
@@ -48,7 +51,11 @@
     "health-collections": {
       "type": "health-collections",
       "settings": {
-        "collections": ["perfomance", "protein", "wellbeing"],
+        "collections": [
+          "perfomance",
+          "protein",
+          "wellbeing"
+        ],
         "show_slider_controls": true,
         "margin_top": 100,
         "margin_bottom": 100
@@ -67,6 +74,35 @@
     },
     "health-ultimate": {
       "type": "health-ultimate",
+      "blocks": {
+        "product_slide_yhFkqn": {
+          "type": "product-slide",
+          "settings": {
+            "product": "whey-protein",
+            "product_title": "",
+            "product_description": "",
+            "key_features": ""
+          }
+        },
+        "product_slide_7RnXge": {
+          "type": "product-slide",
+          "settings": {
+            "product": "the-health-project-essential-stack",
+            "product_title": "",
+            "product_description": "",
+            "key_features": ""
+          }
+        }
+      },
+      "block_order": [
+        "product_slide_yhFkqn",
+        "product_slide_7RnXge"
+      ],
+      "settings": {
+        "image_position": "row",
+        "show_slider_controls": false,
+        "margin_bottom": 20
+      }
     }
   },
   "order": [
