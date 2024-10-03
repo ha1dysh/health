@@ -1,159 +1,12 @@
+{{ 'health-hero.css' | asset_url | stylesheet_tag }}
+{{ 'health-hero.js' | asset_url | script_tag }}
+
 <style>
   .hero {
     margin-bottom: {{ section.settings.margin_bottom }}px;
     background: url('{{ section.settings.background_image | image_url }}') no-repeat;
-    background-size: auto 25%;
-
-    @media (min-width: 768px) {
-      background-size: auto 50%;
-    }
-    @media (min-width: 1366px) {
-      background-size: 100% 70%;
-    }
-  }
-
-  .swiper-hero {
-    overflow: hidden;
-
-    & .swiper-slide {
-      & img {
-        height: 500px;
-        margin: 0 auto;
-        object-fit: scale-down;
-
-        @media (min-width: 428px) {
-          transform: scale(1);
-        }
-        @media (min-width: 768px) {
-          height: 700px;
-        }
-        @media (min-width: 1366px) {
-          height: 860px;
-        }
-      }
-
-      & .slide-content {
-        margin-top: 40px;
-        padding: 0 22px;
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-
-        @media (min-width: 768px) {
-          padding: 0 62px;
-        }
-
-        @media (min-width: 1366px) {
-          position: absolute;
-          bottom: 25%;
-          width: 100%;
-          padding: 0 255px;
-        }
-
-        & .buy-now-controls-wrapper {
-          display: flex;
-
-          @media (min-width: 1366px) {
-            justify-content: space-between;
-          }
-        }
-
-        & .arrows-nav {
-          position: static;
-          display: inline-flex;
-          flex-direction: row-reverse;
-          gap: 20px;
-          align-self: flex-end;
-
-          & .swiper-button-prev,
-          & .swiper-button-next {
-            position: relative;
-            right: 0;
-            width: 20px;
-            height: 20px;
-            padding: 30px;
-            border-radius: 50%;
-            outline: 1px solid var(--color-border);
-            outline-offset: -5px;
-            &:after {
-              content: '';
-            }
-          }
-          & .swiper-button-prev {
-            background: url('{{ 'health-arrow-left.svg' | asset_url }}') no-repeat center;
-          }
-          & .swiper-button-next {
-            background: url('{{ 'health-arrow-right.svg' | asset_url }}') no-repeat center;
-          }
-        }
-
-        & p {
-          color: var(--color-grey-text);
-        }
-
-        & .buy-now {
-          width: 100%;
-
-          @media (min-width: 1366px) {
-            max-width: 320px;
-          }
-        }
-      }
-    }
-  }
-
-  .autoplay-progress {
-    --progress: 0;
-    position: absolute;
-    inset: 0;
-    z-index: 10;
-    stroke-width: 2px;
-    stroke: var(--color-accent-blue);
-    fill: none;
-    stroke-dashoffset: calc(125.6px * (1 - var(--progress)));
-    stroke-dasharray: 125.6;
-    transform: rotate(-90deg);
   }
 </style>
-
-{% javascript %}
-  const progressCircle = document.querySelectorAll('.autoplay-progress');
-  const delay = parseInt(document.querySelector('.swiper-hero').dataset.delay) * 1000;
-
-  new Swiper('.swiper-hero', {
-    direction: 'horizontal',
-    loop: true,
-    slidesPerView: 1,
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    },
-    autoplay: { delay },
-    on: {
-      autoplayTimeLeft(s, time, progress) {
-        progressCircle.forEach((el) => el.style.setProperty('--progress', 1 - progress));
-      },
-    },
-  });
-
-  const buyNowButtons = document.querySelectorAll('.hero .buy-now');
-
-  buyNowButtons.forEach(async (buyNowBtn) => {
-    buyNowBtn.addEventListener('click', async (e) => {
-      const formData = { items: [{ id: Number(e.target.dataset.productId), quantity: 1 }] };
-
-      await fetch(window.Shopify.routes.root + 'cart/add.js', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
-      }).catch((error) => {
-        console.error('Error:', error);
-      });
-
-      window.location.href = '/cart';
-    });
-  });
-{% endjavascript %}
 
 <div class="swiper-hero" data-delay="{{ section.settings.autoplay_delay }}">
   <div class="swiper-wrapper">
@@ -288,7 +141,7 @@
   ],
   "presets": [
     {
-      "name": "testimonial slider",
+      "name": "Health Hero",
       "category": "custom"
     }
   ]
