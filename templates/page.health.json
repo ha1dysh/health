@@ -48,6 +48,31 @@
         "margin_bottom": 20
       }
     },
+    "health_hero_W7cYpb": {
+      "type": "health-hero",
+      "blocks": {
+        "slide_9kdkfJ": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/health-creatine.png",
+            "product": "",
+            "slide-text": "Your heading",
+            "desc": "",
+            "slide-heading-font-size": 20,
+            "slide-font-weight": "normal",
+            "desc-size": 15
+          }
+        }
+      },
+      "block_order": [
+        "slide_9kdkfJ"
+      ],
+      "settings": {
+        "background_image": "shopify://shop_images/mass-gainer.png",
+        "autoplay_delay": 20,
+        "margin_bottom": 20
+      }
+    },
     "health-collections": {
       "type": "health-collections",
       "settings": {
@@ -75,6 +100,7 @@
   },
   "order": [
     "health_hero_Bxjqx9",
+    "health_hero_W7cYpb",
     "health-collections",
     "health-top-sellers"
   ]
