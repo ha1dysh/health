@@ -1,12 +1,12 @@
 /*
-* ------------------------------------------------------------
-* IMPORTANT: The contents of this file are auto-generated.
-*
-* This file may be updated by the Shopify admin theme editor
-* or related systems. Please exercise caution as any changes
-* made to this file may be overwritten.
-* ------------------------------------------------------------
-*/
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "layout": "health-layout",
   "sections": {
@@ -38,50 +38,9 @@
           }
         }
       },
-      "block_order": [
-        "slide_QWBpTG",
-        "slide_bcVbeR"
-      ],
+      "block_order": ["slide_QWBpTG", "slide_bcVbeR"],
       "settings": {
         "background_image": "shopify://shop_images/health-hero-bg.png",
-        "autoplay_delay": 20,
-        "margin_bottom": 20
-      }
-    },
-    "health_hero_W7cYpb": {
-      "type": "health-hero",
-      "blocks": {
-        "slide_9kdkfJ": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/health-creatine.png",
-            "product": "",
-            "slide-text": "Your heading",
-            "desc": "",
-            "slide-heading-font-size": 20,
-            "slide-font-weight": "normal",
-            "desc-size": 15
-          }
-        },
-        "slide_WmNpLi": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/creatine-monohydrate.png",
-            "product": "",
-            "slide-text": "Your heading",
-            "desc": "",
-            "slide-heading-font-size": 20,
-            "slide-font-weight": "normal",
-            "desc-size": 15
-          }
-        }
-      },
-      "block_order": [
-        "slide_9kdkfJ",
-        "slide_WmNpLi"
-      ],
-      "settings": {
-        "background_image": "shopify://shop_images/mass-gainer.png",
         "autoplay_delay": 20,
         "margin_bottom": 20
       }
@@ -89,11 +48,7 @@
     "health-collections": {
       "type": "health-collections",
       "settings": {
-        "collections": [
-          "perfomance",
-          "protein",
-          "wellbeing"
-        ],
+        "collections": ["perfomance", "protein", "wellbeing"],
         "show_slider_controls": true,
         "margin_top": 100,
         "margin_bottom": 100
@@ -109,12 +64,15 @@
         "margin_top": 20,
         "margin_bottom": 20
       }
+    },
+    "health-ultimate": {
+      "type": "health-ultimate",
     }
   },
   "order": [
     "health_hero_Bxjqx9",
-    "health_hero_W7cYpb",
     "health-collections",
-    "health-top-sellers"
+    "health-top-sellers",
+    "health-ultimate"
   ]
 }

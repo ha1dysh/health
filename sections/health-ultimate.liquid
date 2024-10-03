@@ -1,24 +1,72 @@
 <style>
   .ultimate {
-    margin-bottom: {{ section.settings.margin_bottom }}px;
+    & .swiper-ultimate-products {
+      overflow: hidden;
+    }
+
+    & .swiper-slide {
+      display: flex;
+
+      & .product-info {
+        width: 50%;
+      }
+
+      & .swiper-ultimate-variants {
+        width: 50%;
+      }
+    }
   }
 </style>
-<div>
-  <h1>Ultimate product</h1>
-  <pre>
-    pre:
 
-    blocks: {{ section.blocks.size }}
+{% javascript %}
+  new Swiper('.swiper-ultimate-products', {
+    direction: 'vertical',
+    scrollbar: {
+      el: '.swiper-ultimate-scrollbar',
+    },
+  });
 
-    
-</pre>
+  new Swiper('.swiper-ultimate-variants', {
+    direction: 'horizontal',
+  });
+
+  console.log('asd');
+{% endjavascript %}
+
+<h1>test</h1>
+<div class="swiper-ultimate-products">
+  <div class="swiper-wrapper">
+    {% for block in section.blocks %}
+      <div class="swiper-slide">
+        <div class="product-info">
+          <h2>{{ block.settings.product.title }}</h2>
+          <p>{{ block.settings.product.description }}</p>
+        </div>
+        <div class="swiper-ultimate-variants">
+          <div class="swiper-wrapper">
+            {% for variant in block.settings.product.variants %}
+              <div class="swiper-slide">
+                <img
+                  src="{{ variant.image | image_url }}"
+                  alt="product image"
+                  width="100px"
+                  height="200px"
+                >
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+  <div class="swiper-pagination"></div>
 </div>
 
 {% schema %}
 {
   "name": "Health ultimate product",
-  "class": "ultimate",
   "tag": "section",
+  "class": "ultimate",
   "settings": [
     {
       "type": "select",
@@ -56,8 +104,7 @@
         {
           "type": "text",
           "id": "product_title",
-          "label": "Product title",
-          "default": "Ultimate product"
+          "label": "Product title"
         },
         {
           "type": "text",
@@ -67,10 +114,15 @@
         {
           "type": "richtext",
           "id": "key_features",
-          "label": "Key features",
-          "default": "- High quality\n - Unreal value for money\n - Delicious flavors\n"
+          "label": "Key features"
         }
       ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Health Ultimate products",
+      "category": "custom"
     }
   ]
 }
