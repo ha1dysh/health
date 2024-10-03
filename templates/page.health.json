@@ -75,15 +75,6 @@
     "health-ultimate": {
       "type": "health-ultimate",
       "blocks": {
-        "product_slide_yhFkqn": {
-          "type": "product-slide",
-          "settings": {
-            "product": "whey-protein",
-            "product_title": "",
-            "product_description": "",
-            "key_features": ""
-          }
-        },
         "product_slide_7RnXge": {
           "type": "product-slide",
           "settings": {
@@ -92,11 +83,20 @@
             "product_description": "test desc prod 1",
             "key_features": "<ul><li>list item 1</li><li>list item 2</li><li>list item 3</li></ul>"
           }
+        },
+        "product_slide_yhFkqn": {
+          "type": "product-slide",
+          "settings": {
+            "product": "whey-protein",
+            "product_title": "title prod 2",
+            "product_description": "title prod 2",
+            "key_features": "<ul><li>list item 1</li><li>list item 2</li><li>list item 3</li></ul>"
+          }
         }
       },
       "block_order": [
-        "product_slide_yhFkqn",
-        "product_slide_7RnXge"
+        "product_slide_7RnXge",
+        "product_slide_yhFkqn"
       ],
       "settings": {
         "image_position": "row",
