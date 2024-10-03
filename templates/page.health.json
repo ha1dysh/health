@@ -88,9 +88,9 @@
           "type": "product-slide",
           "settings": {
             "product": "the-health-project-essential-stack",
-            "product_title": "",
-            "product_description": "",
-            "key_features": ""
+            "product_title": "test title prod 1",
+            "product_description": "test desc prod 1",
+            "key_features": "<ul><li>list item 1</li><li>list item 2</li><li>list item 3</li></ul>"
           }
         }
       },
