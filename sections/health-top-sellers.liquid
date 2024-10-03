@@ -48,12 +48,39 @@
           width: auto;
         }
 
-        & h3 {
-          font-size: 18px;
-          font-weight: 500;
+        & .product-title-wrapper {
+          margin-bottom: 30px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
         }
 
-        & img {
+        & .product-title {
+          font-size: 18px;
+          font-weight: 600;
+
+          @media (min-width: 1366px) {
+            font-size: 32px;
+          }
+        }
+
+        & .arrow-wrapper {
+          width: 50px;
+          height: 50px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border-radius: 50%;
+          background-color: var(--color-white);
+
+          & .arrow {
+            width: 28px;
+            height: 28px;
+          }
+        }
+
+
+        & .product-image {
           margin: 0 auto;
         }
       }
@@ -143,14 +170,23 @@
           href="{{ product.url }}"
         >
           <div>
-            <h3 style="color: {{ color }};">
-              {{ product.title }}
-            </h3>
+            <div class="product-title-wrapper">
+              <h3 class="product-title" style="color: {{ color }};">{{ product.title }}</h3>
+              <div class="arrow-wrapper">
+                <img
+                  class="arrow"
+                  src="{{ 'health-arrow-ne.svg' | asset_url }}"
+                  alt="arrow icon"
+                  width="28"
+                  height="28"
+                >
+              </div>
+            </div>
             <p style="color: {{ color }};">
               {{ product.description | strip_html }}
             </p>
           </div>
-          {{ product | image_url: width: 380 | image_tag }}
+          <img class="product-image" src="{{ product | image_url }}" alt="" width="380" height="auto">
         </a>
       {% endfor %}
     </div>
