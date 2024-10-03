@@ -1,137 +1,12 @@
+{{ 'health-collection.css' | asset_url | stylesheet_tag }}
+
 <style>
-  .collections {
+  .collections-{{ section.id }} {
     margin-top: {{ section.settings.margin_top }}px;
     margin-bottom: {{ section.settings.margin_bottom }}px;
 
-    & .titles-wrapper {
-      margin-bottom: 20px;
-      padding: 0 22px;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 0 20px;
-    }
-
-    & .collection-title {
-      border: none;
-      font-size: 24px;
-      color: var(--color-grey-text);
-      background-color: transparent;
-      cursor: pointer;
-
-      &.active {
-        color: var(--color-black);
-      }
-    }
-
-    & .count {
-      position: relative;
-      top: -5px;
-      font-weight: 500;
-      color: var(--color-grey-text);
-    }
-
-    & .description {
-      visibility: hidden;
-      opacity: 0;
-      max-height: 0;
-      margin-bottom: 20px;
-      padding: 0 22px;
-      color: var(--color-grey-text);
-      transition: all 1s ease-in-out;
-
-      @media (min-width: 1366px) {
-        text-align: center;
-      }
-
-      &.active {
-        visibility: visible;
-        opacity: 1;
-        max-height: 300px;
-      }
-    }
-
-    & .swiper-collection {
-      visibility: hidden;
-      opacity: 0;
-      max-height: 0;
-      overflow: hidden;
-      transition: all 1s ease-in-out;
-
-      &.active {
-        visibility: visible;
-        opacity: 1;
-        max-height: 700px;
-      }
-
-      & .swiper-controls {
-        position: static;
-        width: 100%;
-        margin-top: 30px;
-        display: {% if section.settings.show_slider_controls %}flex{% else %}none{% endif %};
-        justify-content: center;
-        gap: 20px;
-
-        & .swiper-collection-prev,
-        & .swiper-collection-next {
-          position: relative;
-          right: 0;
-          width: 20px;
-          height: 20px;
-          padding: 30px;
-          border-radius: 50%;
-          outline-offset: -5px;
-          cursor: pointer;
-          &:after {
-            content: '';
-          }
-        }
-        & .swiper-collection-prev {
-          background: url('{{ 'health-arrow-left.svg' | asset_url }}') no-repeat center;
-          background-color: #F8F8F8;
-        }
-        & .swiper-collection-next {
-          background: url('{{ 'health-arrow-right.svg' | asset_url }}') no-repeat center;
-          background-color: #F8F8F8;
-        }
-      }
-
-      & .swiper-slide {
-        width: 320px;
-        height: auto;
-        min-height: 536px;
-        padding: 20px 0;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        border-radius: 12px;
-        background-color: #F8F8F8;
-
-        @media (min-width: 1366px) {
-          width: 380px;
-        }
-
-        & .title {
-          margin-top: 40px;
-          font-weight: 500;
-
-          @media (min-width: 768px) {
-            font-size: 18px;
-          }
-        }
-
-        & .weight {
-          margin-top: 15px;
-          color: var(--color-grey-text);
-        }
-
-        & .price {
-          margin-top: 25px;
-          color: var(--color-accent-blue);
-          font-weight: 500;
-          font-size: 24px;
-        }
-      }
+    & .swiper-controls {
+      display: {% if section.settings.show_slider_controls %}flex{% else %}none{% endif %};
     }
   }
 </style>
@@ -186,56 +61,58 @@
   });
 {% endjavascript %}
 
-<div>
-  <div class="titles-wrapper">
-    {%- for collection in section.settings.collections -%}
-      <div>
-        <button
-          class="collection-title {% if forloop.first %}active{% endif %}"
-          data-collection-id="{{ collection.id }}"
-        >
-          {{ collection.title }}
-        </button>
-        <span class="count">{{ collection.all_products_count }}</span>
-      </div>
-    {%- endfor -%}
-  </div>
-
-  {% for collection in section.settings.collections %}
-    <p
-      class="description {% if forloop.first %}active{% endif %}"
-      data-collection-id="{{ collection.id }}"
-    >
-      {{ collection.description | strip_html }}
-    </p>
-  {% endfor %}
-
-  {% for collection in section.settings.collections %}
-    <div
-      class="swiper-collection {% if forloop.first %}active{% endif %}"
-      data-collection-id="{{ collection.id }}"
-    >
-      <div class="swiper-wrapper">
-        {% for product in collection.products %}
-          <div class="swiper-slide">
-            {{ product | image_url: width: 380 | image_tag }}
-
-            <div class="title">{{ product.title }}</div>
-            <div class="weight">
-              {{ product.variants.first.weight }}
-              {{ product.variants.first.weight_unit }}
-            </div>
-            <div class="price">{{ product.price | money }}</div>
-          </div>
-        {% endfor %}
-      </div>
-
-      <div class="swiper-controls">
-        <div class="swiper-collection-prev"></div>
-        <div class="swiper-collection-next"></div>
-      </div>
+<div class="collections-{{ section.id }}">
+  <div>
+    <div class="titles-wrapper">
+      {%- for collection in section.settings.collections -%}
+        <div>
+          <button
+            class="collection-title {% if forloop.first %}active{% endif %}"
+            data-collection-id="{{ collection.id }}"
+          >
+            {{ collection.title }}
+          </button>
+          <span class="count">{{ collection.all_products_count }}</span>
+        </div>
+      {%- endfor -%}
     </div>
-  {% endfor %}
+
+    {% for collection in section.settings.collections %}
+      <p
+        class="description {% if forloop.first %}active{% endif %}"
+        data-collection-id="{{ collection.id }}"
+      >
+        {{ collection.description | strip_html }}
+      </p>
+    {% endfor %}
+
+    {% for collection in section.settings.collections %}
+      <div
+        class="swiper-collection {% if forloop.first %}active{% endif %}"
+        data-collection-id="{{ collection.id }}"
+      >
+        <div class="swiper-wrapper">
+          {% for product in collection.products %}
+            <div class="swiper-slide">
+              {{ product | image_url: width: 380 | image_tag }}
+
+              <div class="title">{{ product.title }}</div>
+              <div class="weight">
+                {{ product.variants.first.weight }}
+                {{ product.variants.first.weight_unit }}
+              </div>
+              <div class="price">{{ product.price | money }}</div>
+            </div>
+          {% endfor %}
+        </div>
+
+        <div class="swiper-controls">
+          <div class="swiper-collection-prev"></div>
+          <div class="swiper-collection-next"></div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
 </div>
 
 {% schema %}
@@ -269,6 +146,12 @@
       "max": 100,
       "min": 0,
       "default": 20
+    }
+  ],
+  "presets": [
+    {
+      "name": "Health Collections",
+      "category": "custom"
     }
   ]
 }

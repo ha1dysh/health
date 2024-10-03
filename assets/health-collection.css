@@ -1,0 +1,131 @@
+.collections {
+  & .titles-wrapper {
+    margin-bottom: 20px;
+    padding: 0 22px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0 20px;
+  }
+
+  & .collection-title {
+    border: none;
+    font-size: 24px;
+    color: var(--color-grey-text);
+    background-color: transparent;
+    cursor: pointer;
+
+    &.active {
+      color: var(--color-black);
+    }
+  }
+
+  & .count {
+    position: relative;
+    top: -5px;
+    font-weight: 500;
+    color: var(--color-grey-text);
+  }
+
+  & .description {
+    visibility: hidden;
+    opacity: 0;
+    max-height: 0;
+    margin-bottom: 20px;
+    padding: 0 22px;
+    color: var(--color-grey-text);
+    transition: all .5s ease-in-out;
+
+    @media (min-width: 1366px) {
+      text-align: center;
+    }
+
+    &.active {
+      visibility: visible;
+      opacity: 1;
+      max-height: 300px;
+    }
+  }
+
+  & .swiper-collection {
+    visibility: hidden;
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: all .5s ease-in-out;
+
+    &.active {
+      visibility: visible;
+      opacity: 1;
+      max-height: 700px;
+    }
+
+    & .swiper-controls {
+      position: static;
+      width: 100%;
+      margin-top: 30px;
+      justify-content: center;
+      gap: 20px;
+
+      & .swiper-collection-prev,
+      & .swiper-collection-next {
+        position: relative;
+        right: 0;
+        width: 20px;
+        height: 20px;
+        padding: 30px;
+        border-radius: 50%;
+        outline-offset: -5px;
+        cursor: pointer;
+        &:after {
+          content: '';
+        }
+      }
+      & .swiper-collection-prev {
+        background: url('health-arrow-left.svg') no-repeat center;
+        background-color: #f8f8f8;
+      }
+      & .swiper-collection-next {
+        background: url('health-arrow-right.svg') no-repeat center;
+        background-color: #f8f8f8;
+      }
+    }
+
+    & .swiper-slide {
+      width: 320px;
+      height: auto;
+      min-height: 536px;
+      padding: 20px 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border-radius: 12px;
+      background-color: #f8f8f8;
+
+      @media (min-width: 1366px) {
+        width: 380px;
+      }
+
+      & .title {
+        margin-top: 40px;
+        font-weight: 500;
+
+        @media (min-width: 768px) {
+          font-size: 18px;
+        }
+      }
+
+      & .weight {
+        margin-top: 15px;
+        color: var(--color-grey-text);
+      }
+
+      & .price {
+        margin-top: 25px;
+        color: var(--color-accent-blue);
+        font-weight: 500;
+        font-size: 24px;
+      }
+    }
+  }
+}
