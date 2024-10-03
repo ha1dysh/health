@@ -62,10 +62,23 @@
             "slide-font-weight": "normal",
             "desc-size": 15
           }
+        },
+        "slide_WmNpLi": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/creatine-monohydrate.png",
+            "product": "",
+            "slide-text": "Your heading",
+            "desc": "",
+            "slide-heading-font-size": 20,
+            "slide-font-weight": "normal",
+            "desc-size": 15
+          }
         }
       },
       "block_order": [
-        "slide_9kdkfJ"
+        "slide_9kdkfJ",
+        "slide_WmNpLi"
       ],
       "settings": {
         "background_image": "shopify://shop_images/mass-gainer.png",
