@@ -74,6 +74,43 @@
         "margin_bottom": 20
       }
     },
+    "health_hero_Bxjqx9": {
+      "type": "health-hero",
+      "blocks": {
+        "slide_QWBpTG": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/creatine-monohydrate.png",
+            "product": "",
+            "slide-text": "Your heading",
+            "desc": "",
+            "slide-heading-font-size": 20,
+            "slide-font-weight": "normal",
+            "desc-size": 15
+          }
+        },
+        "slide_bcVbeR": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/whey-red.png",
+            "product": "",
+            "slide-text": "Your heading",
+            "desc": "",
+            "slide-heading-font-size": 20,
+            "slide-font-weight": "normal",
+            "desc-size": 15
+          }
+        }
+      },
+      "block_order": [
+        "slide_QWBpTG",
+        "slide_bcVbeR"
+      ],
+      "settings": {
+        "autoplay_delay": 20,
+        "margin_bottom": 20
+      }
+    },
     "health-collections": {
       "type": "health-collections",
       "settings": {
@@ -97,20 +134,12 @@
         "margin_top": 20,
         "margin_bottom": 20
       }
-    },
-    "health-ultimate": {
-      "type": "health-ultimate",
-      "settings": {
-        "image_position": "row",
-        "show_slider_controls": true,
-        "margin_bottom": 20
-      },
     }
   },
   "order": [
     "health-hero",
+    "health_hero_Bxjqx9",
     "health-collections",
-    "health-top-sellers",
-    "health-ultimate"
+    "health-top-sellers"
   ]
 }
