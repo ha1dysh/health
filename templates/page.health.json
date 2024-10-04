@@ -88,8 +88,8 @@
           "type": "product-slide",
           "settings": {
             "product": "whey-protein",
-            "product_title": "title prod 2",
-            "product_description": "title prod 2",
+            "product_title": "The Health Project Ultimate Whey Protein",
+            "product_description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur a nunc ultrices, feugiat augue vitae, accumsan quam. In auctor sem nunc, ac iaculis lacus dignissim nec.",
             "key_features": "<ul><li>list item 1</li><li>list item 2</li><li>list item 3</li></ul>"
           }
         }
@@ -101,7 +101,7 @@
       "settings": {
         "image_position": "row",
         "show_slider_controls": false,
-        "margin_bottom": 20
+        "margin_bottom": 100
       }
     }
   },
