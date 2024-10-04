@@ -92,11 +92,21 @@
             "product_description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur a nunc ultrices, feugiat augue vitae, accumsan quam. In auctor sem nunc, ac iaculis lacus dignissim nec.",
             "key_features": "<ul><li>list item 1</li><li>list item 2</li><li>list item 3</li></ul>"
           }
+        },
+        "product_slide_cDC9hb": {
+          "type": "product-slide",
+          "settings": {
+            "product": "creatine-monohydrate",
+            "product_title": "",
+            "product_description": "",
+            "key_features": ""
+          }
         }
       },
       "block_order": [
         "product_slide_7RnXge",
-        "product_slide_yhFkqn"
+        "product_slide_yhFkqn",
+        "product_slide_cDC9hb"
       ],
       "settings": {
         "image_position": "row",
