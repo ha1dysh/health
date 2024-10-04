@@ -13,30 +13,6 @@
     "health_hero_Bxjqx9": {
       "type": "health-hero",
       "blocks": {
-        "slide_QWBpTG": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/creatine-monohydrate.png",
-            "product": "",
-            "slide-text": "Your heading",
-            "desc": "",
-            "slide-heading-font-size": 20,
-            "slide-font-weight": "normal",
-            "desc-size": 15
-          }
-        },
-        "slide_bcVbeR": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/whey-red.png",
-            "product": "",
-            "slide-text": "Your heading",
-            "desc": "",
-            "slide-heading-font-size": 20,
-            "slide-font-weight": "normal",
-            "desc-size": 15
-          }
-        },
         "slide_wCkR88": {
           "type": "slide",
           "settings": {
@@ -48,12 +24,36 @@
             "slide-font-weight": "normal",
             "desc-size": 15
           }
+        },
+        "slide_bcVbeR": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/whey-red.png",
+            "product": "mass-gainer",
+            "slide-text": "Your heading",
+            "desc": "",
+            "slide-heading-font-size": 20,
+            "slide-font-weight": "normal",
+            "desc-size": 15
+          }
+        },
+        "slide_QWBpTG": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/creatine-monohydrate.png",
+            "product": "creatine-monohydrate",
+            "slide-text": "Your heading",
+            "desc": "",
+            "slide-heading-font-size": 20,
+            "slide-font-weight": "normal",
+            "desc-size": 15
+          }
         }
       },
       "block_order": [
-        "slide_QWBpTG",
+        "slide_wCkR88",
         "slide_bcVbeR",
-        "slide_wCkR88"
+        "slide_QWBpTG"
       ],
       "settings": {
         "background_image": "shopify://shop_images/health-hero-bg.png",
