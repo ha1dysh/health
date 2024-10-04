@@ -36,11 +36,24 @@
             "slide-font-weight": "normal",
             "desc-size": 15
           }
+        },
+        "slide_wCkR88": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/health-creatine.png",
+            "product": "the-health-project-essential-stack",
+            "slide-text": "Your heading",
+            "desc": "test desc",
+            "slide-heading-font-size": 20,
+            "slide-font-weight": "normal",
+            "desc-size": 15
+          }
         }
       },
       "block_order": [
         "slide_QWBpTG",
-        "slide_bcVbeR"
+        "slide_bcVbeR",
+        "slide_wCkR88"
       ],
       "settings": {
         "background_image": "shopify://shop_images/health-hero-bg.png",
