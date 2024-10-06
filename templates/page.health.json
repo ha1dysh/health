@@ -1,12 +1,12 @@
 /*
-* ------------------------------------------------------------
-* IMPORTANT: The contents of this file are auto-generated.
-*
-* This file may be updated by the Shopify admin theme editor
-* or related systems. Please exercise caution as any changes
-* made to this file may be overwritten.
-* ------------------------------------------------------------
-*/
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "layout": "health-layout",
   "sections": {
@@ -50,11 +50,7 @@
           }
         }
       },
-      "block_order": [
-        "slide_wCkR88",
-        "slide_bcVbeR",
-        "slide_QWBpTG"
-      ],
+      "block_order": ["slide_wCkR88", "slide_bcVbeR", "slide_QWBpTG"],
       "settings": {
         "background_image": "shopify://shop_images/health-hero-bg.png",
         "autoplay_delay": 20,
@@ -64,11 +60,7 @@
     "health-collections": {
       "type": "health-collections",
       "settings": {
-        "collections": [
-          "perfomance",
-          "protein",
-          "wellbeing"
-        ],
+        "collections": ["perfomance", "protein", "wellbeing"],
         "show_slider_controls": true,
         "margin_bottom": 100
       }
@@ -133,7 +125,7 @@
         "space_between_blocks_desk": 40,
         "show_lines": true,
         "border_radius": 200,
-        "margin_bottom": 40,
+        "margin_bottom": 40
       },
       "blocks": {
         "info_block-1": {
@@ -161,52 +153,126 @@
           }
         }
       },
-      "block_order": [
-        "info_block-1",
-        "info_block-2",
-        "info_block-3",
-      ],
+      "block_order": ["info_block-1", "info_block-2", "info_block-3"]
     },
     "health-gallery": {
       "type": "health-gallery",
       "settings": {
         "title": "Lorem ipsum dolor sit amet qwe",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur a nunc ultrices, feugiat augue vitae, accumsan quam.",
-        "margin_bottom": 40,
+        "margin_bottom": 40
       },
       "blocks": {
         "slide_image-1": {
           "type": "slide_image",
           "settings": {
-            "image": "shopify://shop_images/gallery-img-1.jpg",
+            "image": "shopify://shop_images/gallery-img-1.jpg"
           }
         },
         "slide_image-2": {
           "type": "slide_image",
           "settings": {
-            "image": "shopify://shop_images/gallery-img-2.jpg",
+            "image": "shopify://shop_images/gallery-img-2.jpg"
           }
         },
         "slide_image-3": {
           "type": "slide_image",
           "settings": {
-            "image": "shopify://shop_images/gallery-img-3.jpg",
+            "image": "shopify://shop_images/gallery-img-3.jpg"
           }
         },
         "slide_image-4": {
           "type": "slide_image",
           "settings": {
-            "image": "shopify://shop_images/gallery-img-4.jpg",
+            "image": "shopify://shop_images/gallery-img-4.jpg"
           }
-        },
+        }
       },
       "block_order": [
         "slide_image-1",
         "slide_image-2",
         "slide_image-3",
-        "slide_image-4",
-      ],
-    }
+        "slide_image-4"
+      ]
+    },
+    "health-reviews": {
+      "type": "health-reviews",
+      "settings": {
+        "title": "What clients say about us",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur a nunc ultrices, feugiat augue vitae, accumsan quam.",
+        "margin_bottom": 40
+      },
+      "blocks": {
+        "slide_review-1": {
+          "type": "author_image",
+          "settings": {
+            "author_image": "shopify://shop_images/review-author-img.png",
+            "author_profession": "Bodybuilder",
+            "author_name":"Mark Toried",
+            "review_stars": 5,
+            "review_paragraph":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur a nunc ultrices, feugiat augue vitae, accumsan quam.  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur a nunc ultrices, feugiat augue vitae, accumsan quam.  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur a nunc ultrices, feugiat augue vitae, accumsan quam.  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur a nunc ultrices, feugiat augue vitae, accumsan quam.  "
+          }
+        },
+        "slide_review-2": {
+          "type": "author_image",
+          "settings": {
+            "author_image": "shopify://shop_images/review-author-img.png",
+            "author_profession": "Bodybuilder",
+            "author_name":"Mark Toried",
+            "review_stars": 10,
+            "review_paragraph":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur a nunc ultrices, feugiat augue vitae, accumsan quam.  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur a nunc ultrices, feugiat augue vitae, accumsan quam.  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur a nunc ultrices, feugiat augue vitae, accumsan quam.  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur a nunc ultrices, feugiat augue vitae, accumsan quam.  "
+          }
+        },
+        "slide_review-3": {
+          "type": "author_image",
+          "settings": {
+            "author_image": "shopify://shop_images/review-author-img.png",
+            "author_profession": "Bodybuilder",
+            "author_name":"Mark Toried",
+            "review_stars": 3,
+            "review_paragraph":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur a nunc ultrices, feugiat augue vitae, accumsan quam.  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur a nunc ultrices, feugiat augue vitae, accumsan quam.  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur a nunc ultrices, feugiat augue vitae, accumsan quam.  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur a nunc ultrices, feugiat augue vitae, accumsan quam.  "
+          }
+        },
+        "slide_review-4": {
+          "type": "author_image",
+          "settings": {
+            "author_image": "shopify://shop_images/review-author-img.png",
+            "author_profession": "Bodybuilder",
+            "author_name":"Mark Toried",
+            "review_stars": 5,
+            "review_paragraph":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur a nunc ultrices, feugiat augue vitae, accumsan quam.  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur a nunc ultrices, feugiat augue vitae, accumsan quam.  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur a nunc ultrices, feugiat augue vitae, accumsan quam.  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur a nunc ultrices, feugiat augue vitae, accumsan quam.  "
+          }
+        },
+        "slide_review-5": {
+          "type": "author_image",
+          "settings": {
+            "author_image": "shopify://shop_images/review-author-img.png",
+            "author_profession": "Bodybuilder",
+            "author_name":"Mark Toried",
+            "review_stars": 5,
+            "review_paragraph":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur a nunc ultrices, feugiat augue vitae, accumsan quam.  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur a nunc ultrices, feugiat augue vitae, accumsan quam.  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur a nunc ultrices, feugiat augue vitae, accumsan quam.  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur a nunc ultrices, feugiat augue vitae, accumsan quam.  "
+          }
+        },
+        "slide_review-6": {
+          "type": "author_image",
+          "settings": {
+            "author_image": "shopify://shop_images/review-author-img.png",
+            "author_profession": "Bodybuilder",
+            "author_name":"Mark Toried",
+            "review_stars": 5,
+            "review_paragraph":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur a nunc ultrices, feugiat augue vitae, accumsan quam.  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur a nunc ultrices, feugiat augue vitae, accumsan quam.  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur a nunc ultrices, feugiat augue vitae, accumsan quam.  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur a nunc ultrices, feugiat augue vitae, accumsan quam.  "
+          }
+        }
+      },
+      "block_order": [
+        "slide_review-1",
+        "slide_review-2",
+        "slide_review-3",
+        "slide_review-4",
+        "slide_review-5",
+        "slide_review-6",
+      ]
+    },
   },
   "order": [
     "health_hero_Bxjqx9",
@@ -214,6 +280,7 @@
     "health-top-sellers",
     "health-ultimate",
     "health-info",
-    "health-gallery"
+    "health-gallery",
+    "health-reviews"
   ]
 }

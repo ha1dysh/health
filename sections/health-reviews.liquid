@@ -1,0 +1,152 @@
+{{ 'health-reviews.css' | asset_url | stylesheet_tag }}
+
+<style>
+  .reviews-{{ section.id }} {
+    margin-bottom: {{ section.settings.margin_bottom }}px;
+  }
+</style>
+
+{% javascript %}
+  document.addEventListener('DOMContentLoaded', function () {
+    var swiper = new Swiper('.swiper-reviews', {
+      loop: true,
+      slidesPerView: 1.15,
+      spaceBetween: 8,
+      centeredSlides: true,
+      navigation: {
+        prevEl: '.swiper-review-prev',
+        nextEl: '.swiper-review-next',
+      },
+      breakpoints: {
+        768: { slidesPerView: 3.2 },
+        1366: { slidesPerView: 4.5 },
+      },
+      on: {
+        slideChange: function () {
+          const slides = document.querySelectorAll('.reviews .slide-content');
+
+          const activeIndex = this.activeIndex;
+
+          slides.forEach((slide, index) => {
+            slide.style.transform = 'scale(0.9)';
+            if (slides[activeIndex - 1] && slides[activeIndex + 1]) {
+              slides[activeIndex - 1].style.transform = 'scale(0.95)';
+              slides[activeIndex + 1].style.transform = 'scale(0.95)';
+            }
+            slides[activeIndex].style.transform = 'scale(1)';
+          });
+
+          console.log(slides, activeIndex);
+        },
+      },
+    });
+  });
+{% endjavascript %}
+
+<div class="reviews reviews-{{ section.id }}">
+  <h2 class="title">{{ section.settings.title }}</h2>
+
+  <p class="description">{{ section.settings.description }}</p>
+
+  <div class="swiper-reviews">
+    <div class="swiper-wrapper">
+      {% for block in section.blocks %}
+        <div class="swiper-slide">
+          <div class="slide-content">
+            <div class="review-header">
+              <img src="{{ block.settings.author_image | image_url }}" alt="author review" width="auto" height="auto">
+
+              <div>
+                <div>{{ block.settings.author_name }}</div>
+                <div class="prof">{{ block.settings.author_profession }}</div>
+              </div>
+            </div>
+
+            <p class="paragraph">{{ block.settings.review_paragraph }}</p>
+
+            <div class="stars">
+              {% for index in (1..10) %}
+                {% if index > block.settings.review_stars %}{% break %}{% endif %}
+
+                <img src="{{ 'health-star.svg' | asset_url }}" alt="star" width="24" height="24">
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+  <div class="swiper-controls">
+    <div class="swiper-review-prev"></div>
+    <div class="swiper-review-next"></div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Health reviews",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Review title"
+    },
+    {
+      "type": "text",
+      "id": "description",
+      "label": "Review description"
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom",
+      "label": "Margin bottom",
+      "max": 100,
+      "min": 0,
+      "default": 20
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Author image",
+      "type": "author_image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "author_image",
+          "label": "Author image"
+        },
+        {
+          "type": "text",
+          "id": "author_name",
+          "label": "Author name"
+        },
+        {
+          "type": "text",
+          "id": "author_profession",
+          "label": "Author profession"
+        },
+        {
+          "type": "text",
+          "id": "review_paragraph",
+          "label": "Review paragraph"
+        },
+        {
+          "type": "range",
+          "id": "review_stars",
+          "label": "Amount of stars",
+          "min": 0,
+          "max": 10,
+          "default": 5
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Health reviews",
+      "category": "custom"
+    }
+  ]
+}
+{% endschema %}
