@@ -17,6 +17,9 @@
     & .mob-visit-market,
     & .desk-visit-market {
       height: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
     & .mob-visit-market {
@@ -185,7 +188,7 @@
         {%- endunless -%}
       {% endfor %}
     </ul>
-    <button class="button-primary mob-visit-market">Visit market</button>
+    <a href="{{ section.settings.visit_market_link }}" class="button-primary mob-visit-market">Visit market</a>
   </div>
 
   <div class="desktop-nav">
@@ -197,7 +200,7 @@
       {% endfor %}
     </ul>
   </div>
-  <button class="button-primary desk-visit-market">Visit market</button>
+  <a href="{{ section.settings.visit_market_link }}" class="button-primary desk-visit-market">Visit market</a>
 </header>
 
 {% schema %}
@@ -224,6 +227,11 @@
           "label": "Right"
         }
       ]
+    },
+    {
+      "type": "url",
+      "id": "visit_market_link",
+      "label": "Visit market link"
     },
     {
       "label": "Navigation menu logo position",
