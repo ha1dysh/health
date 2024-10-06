@@ -166,6 +166,46 @@
         "info_block-2",
         "info_block-3",
       ],
+    },
+    "health-gallery": {
+      "type": "health-gallery",
+      "settings": {
+        "title": "Lorem ipsum dolor sit amet qwe",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur a nunc ultrices, feugiat augue vitae, accumsan quam.",
+        "margin_bottom": 40,
+      },
+      "blocks": {
+        "slide_image-1": {
+          "type": "slide_image",
+          "settings": {
+            "image": "shopify://shop_images/gallery-img-1.jpg",
+          }
+        },
+        "slide_image-2": {
+          "type": "slide_image",
+          "settings": {
+            "image": "shopify://shop_images/gallery-img-2.jpg",
+          }
+        },
+        "slide_image-3": {
+          "type": "slide_image",
+          "settings": {
+            "image": "shopify://shop_images/gallery-img-3.jpg",
+          }
+        },
+        "slide_image-4": {
+          "type": "slide_image",
+          "settings": {
+            "image": "shopify://shop_images/gallery-img-4.jpg",
+          }
+        },
+      },
+      "block_order": [
+        "slide_image-1",
+        "slide_image-2",
+        "slide_image-3",
+        "slide_image-4",
+      ],
     }
   },
   "order": [
@@ -174,5 +214,6 @@
     "health-top-sellers",
     "health-ultimate",
     "health-info",
+    "health-gallery"
   ]
 }

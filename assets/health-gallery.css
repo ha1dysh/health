@@ -1,0 +1,35 @@
+.gallery {
+  max-width: 1400px;
+  margin: auto;
+
+  & .title {
+    margin-bottom: 10px;
+    padding: 0 22px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 500;
+
+    @media (min-width: 1366px) {
+      padding: 0 62px;
+    }
+  }
+
+  & .description {
+    margin-bottom: 40px;
+    padding: 0 22px;
+    text-align: center;
+    color: var(--color-grey-text);
+
+    @media (min-width: 1366px) {
+      padding: 0 62px;
+    }
+  }
+
+  & .swiper-gallery {
+    overflow: hidden;
+
+    & img {
+      border-radius: 12px;
+    }
+  }
+}
