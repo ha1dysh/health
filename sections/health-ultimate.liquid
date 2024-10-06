@@ -4,6 +4,26 @@
   .ultimate-{{ section.id }} {
     margin-top: 100px; {%- comment -%} TODO: remove {%- endcomment -%}
     margin-bottom: {{  section.settings.margin_bottom }}px;
+
+    & .swiper-ultimate-controls {
+      display: {% if section.settings.show_slider_controls %}flex{% else %}none{% endif %};
+    }
+
+    & .swiper-ultimate-products {
+      @media (min-width: 1366px) {
+          flex-direction: {{ section.settings.slider_controls_position }};
+        }
+      }
+
+    {%- if section.settings.image_position == 'left' -%}
+      @media (min-width: 1366px) {
+        & .slide-content {
+          grid-template-areas:
+          'product-media title'
+          'product-media description' !important;
+        }
+      }
+    {%- endif -%}
   }
 </style>
 
@@ -12,10 +32,7 @@
 
   const productsSwiper = new Swiper('.swiper-ultimate-products', {
     direction: isMobile() ? 'horizontal' : 'vertical',
-    autoHeight: true,
-    spaceBetween: 24,
-    slidesPerView: 1,
-    nested: true,
+    spaceBetween: 8,
     scrollbar: {
       el: '.swiper-ultimate-scrollbar',
     },
@@ -58,36 +75,47 @@
     <div class="swiper-wrapper">
       {% for block in section.blocks %}
         <div class="swiper-slide">
-          <div class="product-info">
-            <h2>{{ block.settings.product.title }}</h2>
-            <p>{{ block.settings.product.description }}</p>
-          </div>
+          <div class="slide-content">
+            {%- assign product = block.settings.product -%}
 
-          {% if block.settings.product.variants.size > 1 %}
-            <div class="swiper-ultimate-variants">
-              <div class="swiper-wrapper">
-                {% for variant in block.settings.product.variants %}
-                  <div class="swiper-slide" data-variant-color="{{ variant.metafields.custom.color.value.color }}">
-                    {{ variant.featured_media | image_url: width: 500, height: 500 | image_tag }}
+            <h2 class="title">{{ product.title }}</h2>
+
+            <div class="product-media">
+              {% if block.settings.product.variants.size > 1 %}
+                <div class="swiper-ultimate-variants">
+                  <div class="swiper-wrapper">
+                    {% for variant in block.settings.product.variants %}
+                      <div class="swiper-slide" data-variant-color="{{ variant.metafields.custom.color.value.color }}">
+                        {{ variant.featured_media | image_url: width: 500, height: 500 | image_tag }}
+                      </div>
+                    {% endfor %}
                   </div>
-                {% endfor %}
+                  <div class="swiper-ultimate-variants-pagination"></div>
+                </div>
+              {% else %}
+                {{ product | image_url: width: 500, height: 500 | image_tag }}
+              {% endif %}
+            </div>
+
+            <div class="description">
+              <div class="weight">
+                {{ product.variants.first.weight }}
+                {{ product.variants.first.weight_unit }}
               </div>
-              <div class="swiper-ultimate-variants-pagination"></div>
+              <p>{{ product.description | strip_html }}</p>
+              {{ block.settings.key_features }}
+              <button class="button-primary">Buy now {{ product.price | money }}</button>
             </div>
-          {% else %}
-            <div class="product-image-wrapper">
-              {{ block.settings.product | image_url: width: 500, height: 500 | image_tag }}
-            </div>
-          {% endif %}
+          </div>
         </div>
       {% endfor %}
     </div>
-  </div>
 
-  <div class="swiper-ultimate-controls">
-    <div class="swiper-ultimate-prev"></div>
-    <div class="swiper-ultimate-scrollbar"></div>
-    <div class="swiper-ultimate-next"></div>
+    <div class="swiper-ultimate-controls">
+      <div class="swiper-ultimate-prev"></div>
+      <div class="swiper-ultimate-scrollbar"></div>
+      <div class="swiper-ultimate-next"></div>
+    </div>
   </div>
 </div>
 
@@ -102,8 +130,17 @@
       "id": "image_position",
       "label": "Image position",
       "options": [
-        { "value": "row", "label": "Left" },
-        { "value": "row-reverse", "label": "Right" }
+        { "value": "left", "label": "Left" },
+        { "value": "right", "label": "Right" }
+      ]
+    },
+    {
+      "type": "select",
+      "label": "Slider control position on desktop",
+      "id": "slider_controls_position",
+      "options": [
+        { "label": "Left", "value": "row-reverse" },
+        { "label": "Rifht", "value": "row" }
       ]
     },
     {

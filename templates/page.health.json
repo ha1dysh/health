@@ -81,8 +81,7 @@
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur a nunc ultrices, feugiat augue vitae, accumsan quam.",
         "collection": "top-sellers",
         "show_slider_controls": true,
-        "margin_top": 20,
-        "margin_bottom": 20
+        "margin_bottom": 100
       }
     },
     "health-ultimate": {
@@ -122,8 +121,9 @@
         "product_slide_cDC9hb"
       ],
       "settings": {
-        "image_position": "row",
-        "show_slider_controls": false,
+        "image_position": "right",
+        "slider_controls_position": "row-reverse",
+        "show_slider_controls": true,
         "margin_bottom": 100
       }
     }
