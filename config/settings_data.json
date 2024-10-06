@@ -144,6 +144,7 @@
         "settings": {
           "logo": "shopify://shop_images/health-logo.svg",
           "health_logo_position": "row",
+          "visit_market_link": "shopify://collections/all",
           "health_nav_logo_position": "row",
           "menu": "main-menu",
           "sticky_header_type": "static"
