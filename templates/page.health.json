@@ -125,12 +125,54 @@
         "show_slider_controls": true,
         "margin_bottom": 100
       }
+    },
+    "health-info": {
+      "type": "health-info",
+      "settings": {
+        "space_between_blocks": 40,
+        "space_between_blocks_desk": 40,
+        "show_lines": true,
+        "border_radius": 200,
+        "margin_bottom": 40,
+      },
+      "blocks": {
+        "info_block-1": {
+          "type": "info_block",
+          "settings": {
+            "image": "shopify://shop_images/info-img-1.jpg",
+            "title": "Whey Protein",
+            "paragraph": "Lorem Whey Protein is a high-quality protein supplement. Recognized for its rapid absorption and rich amino acid profile, it supports muscle growth, repair, and overall athletic performance."
+          }
+        },
+        "info_block-2": {
+          "type": "info_block",
+          "settings": {
+            "image": "shopify://shop_images/info-img-2.jpg",
+            "title": "Plant Protein",
+            "paragraph": "A sustainable, plant-based source rich in essential amino acids, promoting muscle health and catering to vegetarian and vegan lifestyles."
+          }
+        },
+        "info_block-3": {
+          "type": "info_block",
+          "settings": {
+            "image": "shopify://shop_images/info-img-3.jpg",
+            "title": "Creatine",
+            "paragraph": "Creatine Monohydrate is the most studied ingredient, known for enhancing muscle strength, improving performance and increasing your body's production of ATP."
+          }
+        }
+      },
+      "block_order": [
+        "info_block-1",
+        "info_block-2",
+        "info_block-3",
+      ],
     }
   },
   "order": [
     "health_hero_Bxjqx9",
     "health-collections",
     "health-top-sellers",
-    "health-ultimate"
+    "health-ultimate",
+    "health-info",
   ]
 }
