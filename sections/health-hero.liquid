@@ -30,7 +30,7 @@
                 class="button-primary buy-now"
                 data-product-id="{{ block.settings.product.variants.first.id }}"
               >
-                Buy now
+                Buy now {{ block.settings.product.price | money }}
               </button>
               <div class="arrows-nav">
                 <div class="swiper-button-next">
