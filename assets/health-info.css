@@ -18,6 +18,7 @@
 
     & .info-image {
       height: auto;
+      margin: auto;
 
       @media (min-width: 1366px) {
         max-width: 360px;

@@ -36,6 +36,7 @@
 <div class="info info-{{ section.id }}">
   {% for block in section.blocks %}
     <div class="line"></div>
+
     <div class="wrapper">
       <img class="info-image" src="{{ block.settings.image | image_url }}" alt="image" width="645" height="305">
 
@@ -43,6 +44,10 @@
 
       <p class="paragraph">{{ block.settings.paragraph | strip_html }}</p>
     </div>
+
+    {%- if forloop.last -%}
+      <div class="line"></div>
+    {%- endif -%}
   {% endfor %}
 </div>
 
@@ -114,6 +119,12 @@
           "label": "Paragraph"
         }
       ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Health info",
+      "category": "custom"
     }
   ]
 }
