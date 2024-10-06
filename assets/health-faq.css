@@ -1,0 +1,70 @@
+.faq {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 22px;
+
+  & .title {
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  & .description {
+    color: var(--color-grey-text);
+    margin-bottom: 10px;
+    text-align: center;
+
+    @media (min-width: 1366px) {
+      margin-bottom: 40px;
+    }
+  }
+
+  & .line {
+    width: 100%;
+    height: 1px;
+    margin: 20px 0;
+    background-color: var(--color-border);
+  }
+
+  & .details {
+    font-weight: 500;
+  }
+
+  & .summary-wrapper {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    & button {
+      border: none;
+      background-color: transparent;
+      outline: none;
+      cursor: pointer;
+    }
+
+    & .plus,
+    .minus {
+      display: none;
+      &.active {
+        display: block;
+      }
+    }
+  }
+
+  & .summary {
+    color: var(--color-grey-text);
+
+    visibility: hidden;
+    opacity: 0;
+    max-height: 0;
+    transition: all 0.5s ease-in-out;
+
+    &.active {
+      visibility: visible;
+      opacity: 1;
+      max-height: 300px;
+    }
+  }
+}

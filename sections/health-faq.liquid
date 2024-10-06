@@ -1,0 +1,100 @@
+{{ 'health-faq.css' | asset_url | stylesheet_tag }}
+
+<style>
+  .faq-{{ section.id }} {
+    margin-bottom: {{ section.settings.margin_bottom }}px;
+  }
+</style>
+
+{% javascript %}
+  const summaryButtons = document.querySelectorAll('.faq .summary-wrapper button');
+  const details = document.querySelectorAll('.faq .details');
+
+  summaryButtons.forEach((summaryButton) => {
+    summaryButton.addEventListener('click', (e) => {
+      const summaryId = summaryButton.dataset.summaryId;
+      const summary = document.querySelector(`.faq .summary[data-summary-id="${summaryId}"]`);
+      const summaryIcons = summaryButton.querySelectorAll('img');
+      summaryIcons.forEach((summaryIcon) => {
+        summaryIcon.classList.toggle('active');
+      });
+
+      summary.classList.toggle('active');
+    });
+  });
+{% endjavascript %}
+
+<div class="faq faq-{{ section.id }}">
+  <h2 class="title">{{ section.settings.title }}</h2>
+  <p class="description">{{ section.settings.description }}</p>
+
+  {% for block in section.blocks %}
+    {%- if forloop.first -%}
+      <div class="line"></div>
+    {%- endif -%}
+
+    <div class="faq-item">
+      <div class="summary-wrapper">
+        <h3 class="details">{{ block.settings.details }}</h3>
+        <button data-summary-id="{{ block.id }}">
+          <img class="plus active" src="{{ 'plus.svg' | asset_url }}" alt="plus" width="24" height="24">
+          <img class="minus" src="{{ 'minus.svg' | asset_url }}" alt="plus" width="24" height="24">
+        </button>
+      </div>
+      <p class="summary" data-summary-id="{{ block.id }}">{{ block.settings.summary }}</p>
+    </div>
+
+    <div class="line"></div>
+  {% endfor %}
+</div>
+
+{% schema %}
+{
+  "name": "FAQ",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "text",
+      "id": "description",
+      "label": "Description"
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom",
+      "label": "Margin bottom",
+      "min": 0,
+      "max": 100,
+      "default": 20
+    }
+  ],
+  "blocks": [
+    {
+      "type": "faq",
+      "name": "FAQ",
+      "settings": [
+        {
+          "type": "text",
+          "id": "details",
+          "label": "Details"
+        },
+        {
+          "type": "text",
+          "id": "summary",
+          "label": "Summary"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Health FAQ",
+      "category": "custom"
+    }
+  ]
+}
+{% endschema %}
