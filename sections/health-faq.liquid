@@ -7,18 +7,17 @@
 </style>
 
 {% javascript %}
-  const summaryButtons = document.querySelectorAll('.faq .summary-wrapper button');
+  const summaries = document.querySelectorAll('.faq .summary-wrapper');
   const details = document.querySelectorAll('.faq .details');
 
-  summaryButtons.forEach((summaryButton) => {
-    summaryButton.addEventListener('click', (e) => {
-      const summaryId = summaryButton.dataset.summaryId;
+  summaries.forEach((summery) => {
+    summery.addEventListener('click', (e) => {
+      const summaryId = summery.dataset.summaryId;
       const summary = document.querySelector(`.faq .summary[data-summary-id="${summaryId}"]`);
-      const summaryIcons = summaryButton.querySelectorAll('img');
+      const summaryIcons = summery.querySelectorAll('img');
       summaryIcons.forEach((summaryIcon) => {
         summaryIcon.classList.toggle('active');
       });
-
       summary.classList.toggle('active');
     });
   });
@@ -34,9 +33,9 @@
     {%- endif -%}
 
     <div class="faq-item">
-      <div class="summary-wrapper">
+      <div class="summary-wrapper" data-summary-id="{{ block.id }}">
         <h3 class="details">{{ block.settings.details }}</h3>
-        <button data-summary-id="{{ block.id }}">
+        <button>
           <img class="plus active" src="{{ 'plus.svg' | asset_url }}" alt="plus" width="24" height="24">
           <img class="minus" src="{{ 'minus.svg' | asset_url }}" alt="plus" width="24" height="24">
         </button>

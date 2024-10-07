@@ -36,6 +36,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    cursor: pointer;
 
     & button {
       border: none;
@@ -46,7 +47,10 @@
 
     & .plus,
     .minus {
+      min-width: 24px;
+      min-height: 24px;
       display: none;
+
       &.active {
         display: block;
       }

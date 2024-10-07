@@ -1,7 +1,7 @@
 .reviews {
   max-width: 1920px;
   margin: auto;
-
+  
   & .title {
     margin-bottom: 22px;
     padding: 0 22px;

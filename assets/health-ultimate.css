@@ -106,13 +106,13 @@
         align-items: center;
         gap: 0 50px;
 
-        .title {
+        & .title {
           grid-area: title;
         }
-        .description {
+        & .description {
           grid-area: description;
         }
-        .product-media {
+        & .product-media {
           grid-area: product-media;
         }
       }

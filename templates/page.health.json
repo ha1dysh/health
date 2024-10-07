@@ -325,6 +325,7 @@
         "faq-5"
       ]
     },
+    "health-text": {}
   },
   "order": [
     "health_hero_Bxjqx9",
@@ -334,6 +335,7 @@
     "health-info",
     "health-gallery",
     "health-reviews",
-    "health-faq"
+    "health-faq",
+    "health-text"
   ]
 }
