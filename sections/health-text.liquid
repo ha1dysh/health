@@ -1,0 +1,107 @@
+<style>
+  .text-{{ section.id }} {
+    margin-bottom: {{ section.settings.margin_bottom }}px;
+  }
+</style>
+
+<div class="text text-{{ section.id }}"></div>
+
+{% schema %}
+{
+  "name": "Health rich text",
+  "settings": [
+    {
+      "type": "range",
+      "id": "space_between_blocks",
+      "label": "Space between blocks",
+      "min": 0,
+      "max": 100,
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom",
+      "label": "Margin bottom",
+      "min": 0,
+      "max": 100,
+      "default": 20
+    }
+  ],
+  "blocks": [
+    {
+      "type": "text",
+      "name": "Text",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text"
+        },
+        {
+          "type": "text_alignment",
+          "id": "text_alignment",
+          "label": "Text alignment"
+        },
+        {
+          "type": "range",
+          "id": "text_size",
+          "label": "Text size",
+          "min": 6,
+          "max": 60,
+          "default": 16
+        },
+        {
+          "type": "select",
+          "id": "text_color",
+          "label": "Text color",
+          "options": [
+            {
+              "value": "var(--color-black)",
+              "label": "Black"
+            },
+            {
+              "value": "var(--color-white)",
+              "label": "White"
+            },
+            {
+              "value": "var(--color-grey-text)",
+              "label": "Grey"
+            },
+            {
+              "value": "var(--color-accent-blue)",
+              "label": "Blue"
+            }
+          ]
+        },
+        {
+          "type": "select",
+          "id": "font_weight",
+          "label": "Font weight",
+          "options": [
+            {
+              "value": "400",
+              "label": "Normal"
+            },
+            {
+              "value": "500",
+              "label": "Medium"
+            },
+            {
+              "value": "600",
+              "label": "Semibold"
+            }
+          ]
+        },
+        {
+          "type": "range",
+          "id": "margin_bottom",
+          "label": "Margin bottom",
+          "min": 0,
+          "max": 100,
+          "default": 10
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
