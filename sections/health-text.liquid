@@ -4,20 +4,22 @@
 
     & .wrapper {
       padding: 0 22px;
-      display: grid;
+      display: flex;
+      flex-direction: column;
 
-      {%- if section.settings.columns == 'one' -%}
-        display: flex;
-        flex-direction: column;
-        {% else %}
-        grid-template-columns: 50% 50%;
-      {%- endif -%}
 
       grid-template-rows: auto;
       gap: {{ section.settings.space_between_blocks }}px 10px;
 
       @media (min-width: 768px) {
         padding: 0 62px;
+        display: grid;
+        {%- if section.settings.columns == 'one' -%}
+          display: flex;
+          flex-direction: column;
+        {% else %}
+          grid-template-columns: 50% 50%;
+        {%- endif -%}
       }
     }
 
@@ -31,13 +33,37 @@
   }
 </style>
 
-<div class="text text-{{ section.id }}">
+<div class="text-{{ section.id }}">
   <div class="wrapper">
     {% for block in section.blocks %}
       {% if block.type == 'title' %}
-        <h2 class="title">{{ block.settings.title }}</h2>
-      {% else %}
-        <p class="paragraph">{{ block.settings.paragraph }}</p>
+        <h2
+          class="title"
+          style="
+            text-align: {{ block.settings.text_alignment }};
+            font-size: {{ block.settings.title_size }}px;
+            color: {{ block.settings.title_color }};
+            font-weight: {{ block.settings.font_weight }};
+            margin-bottom: {{ block.settings.margin_bottom }}px;
+          "
+        >
+          {{ block.settings.title }}
+        </h2>
+      {% endif %}
+
+      {% if block.type == 'paragraph' %}
+        <p
+          class="paragraph"
+          style="
+            text-align: {{ block.settings.text_alignment }};
+            font-size: {{ block.settings.title_size }}px;
+            color: {{ block.settings.title_color }};
+            font-weight: {{ block.settings.font_weight }};
+            margin-bottom: {{ block.settings.margin_bottom }}px;
+          "
+        >
+          {{ block.settings.paragraph }}
+        </p>
       {% endif %}
     {% endfor %}
   </div>
@@ -144,7 +170,7 @@
           "label": "Margin bottom",
           "min": 0,
           "max": 100,
-          "default": 10
+          "default": 0
         }
       ]
     },
@@ -218,7 +244,7 @@
           "label": "Margin bottom",
           "min": 0,
           "max": 100,
-          "default": 10
+          "default": 0
         }
       ]
     }
