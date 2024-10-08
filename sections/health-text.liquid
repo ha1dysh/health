@@ -1,15 +1,61 @@
 <style>
   .text-{{ section.id }} {
     margin-bottom: {{ section.settings.margin_bottom }}px;
+
+    & .wrapper {
+      padding: 0 22px;
+      display: grid;
+
+      {%- if section.settings.columns == 'one' -%}
+        display: flex;
+        flex-direction: column;
+        {% else %}
+        grid-template-columns: 50% 50%;
+      {%- endif -%}
+
+      grid-template-rows: auto;
+      gap: {{ section.settings.space_between_blocks }}px 10px;
+
+      @media (min-width: 768px) {
+        padding: 0 62px;
+      }
+    }
+
+    & .title {
+      grid-area: auto / 1;
+    }
+
+    & .paragraph {
+      grid-area: auto / 2;
+    }
   }
 </style>
 
-<div class="text text-{{ section.id }}"></div>
+<div class="text text-{{ section.id }}">
+  <div class="wrapper">
+    {% for block in section.blocks %}
+      {% if block.type == 'title' %}
+        <h2 class="title">{{ block.settings.title }}</h2>
+      {% else %}
+        <p class="paragraph">{{ block.settings.paragraph }}</p>
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>
 
 {% schema %}
 {
   "name": "Health rich text",
   "settings": [
+    {
+      "type": "select",
+      "id": "columns",
+      "label": "Columns",
+      "options": [
+        { "label": "One column", "value": "one" },
+        { "label": "Two column", "value": "two" }
+      ]
+    },
     {
       "type": "range",
       "id": "space_between_blocks",
@@ -29,13 +75,13 @@
   ],
   "blocks": [
     {
-      "type": "text",
-      "name": "Text",
+      "type": "title",
+      "name": "Title",
       "settings": [
         {
-          "type": "richtext",
-          "id": "text",
-          "label": "Text"
+          "type": "text",
+          "id": "title",
+          "label": "Title"
         },
         {
           "type": "text_alignment",
@@ -44,7 +90,7 @@
         },
         {
           "type": "range",
-          "id": "text_size",
+          "id": "title_size",
           "label": "Text size",
           "min": 6,
           "max": 60,
@@ -52,7 +98,81 @@
         },
         {
           "type": "select",
-          "id": "text_color",
+          "id": "title_color",
+          "label": "Text color",
+          "options": [
+            {
+              "value": "var(--color-black)",
+              "label": "Black"
+            },
+            {
+              "value": "var(--color-white)",
+              "label": "White"
+            },
+            {
+              "value": "var(--color-grey-text)",
+              "label": "Grey"
+            },
+            {
+              "value": "var(--color-accent-blue)",
+              "label": "Blue"
+            }
+          ]
+        },
+        {
+          "type": "select",
+          "id": "font_weight",
+          "label": "Font weight",
+          "options": [
+            {
+              "value": "400",
+              "label": "Normal"
+            },
+            {
+              "value": "500",
+              "label": "Medium"
+            },
+            {
+              "value": "600",
+              "label": "Semibold"
+            }
+          ]
+        },
+        {
+          "type": "range",
+          "id": "margin_bottom",
+          "label": "Margin bottom",
+          "min": 0,
+          "max": 100,
+          "default": 10
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "name": "Paragraph",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "paragraph",
+          "label": "Paragraph"
+        },
+        {
+          "type": "text_alignment",
+          "id": "text_alignment",
+          "label": "Text alignment"
+        },
+        {
+          "type": "range",
+          "id": "title_size",
+          "label": "Text size",
+          "min": 6,
+          "max": 60,
+          "default": 16
+        },
+        {
+          "type": "select",
+          "id": "title_color",
           "label": "Text color",
           "options": [
             {
