@@ -34,12 +34,29 @@
 
     <div class="faq-item">
       <div class="summary-wrapper" data-summary-id="{{ block.id }}">
+        <div class="dots">
+          <svg width="12" height="13" viewBox="0 0 12 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="6" cy="6.5" r="6" fill="#42ABDE"/>
+          </svg>
+        </div>
+
+        <div class="numbering">
+          {%- if forloop.index < 10 -%}
+            <span>0{{ forloop.index }}</span>
+          {%- else -%}
+            <span>{{ forloop.index }}</span>
+          {%- endif -%}
+          <span></span>
+        </div>
+
         <h3 class="details">{{ block.settings.details }}</h3>
+
         <button>
           <img class="plus active" src="{{ 'plus.svg' | asset_url }}" alt="plus" width="24" height="24">
           <img class="minus" src="{{ 'minus.svg' | asset_url }}" alt="plus" width="24" height="24">
         </button>
       </div>
+
       <p class="summary" data-summary-id="{{ block.id }}">{{ block.settings.summary }}</p>
     </div>
 
