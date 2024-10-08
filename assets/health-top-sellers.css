@@ -6,10 +6,6 @@
     font-weight: 500;
     margin-bottom: 10px;
     text-align: center;
-
-    @media (max-width: 768px) {
-      font-size: 100px;
-    }
   }
 
   & .section-description {
