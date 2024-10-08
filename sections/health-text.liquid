@@ -1,19 +1,19 @@
 <style>
   .text-{{ section.id }} {
+    max-width: 1400px;
+    margin: 0 auto;
     margin-bottom: {{ section.settings.margin_bottom }}px;
 
     & .wrapper {
       padding: 0 22px;
       display: flex;
       flex-direction: column;
-
-
-      grid-template-rows: auto;
       gap: {{ section.settings.space_between_blocks }}px 10px;
 
       @media (min-width: 768px) {
-        padding: 0 62px;
+        grid-template-rows: auto;
         display: grid;
+
         {%- if section.settings.columns == 'one' -%}
           display: flex;
           flex-direction: column;

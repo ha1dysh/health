@@ -278,7 +278,7 @@
       "settings": {
         "title": "FAQ",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur a nunc ultrices, feugiat augue vitae, accumsan quam.",
-        "margin_bottom": 40
+        "margin_bottom": 100
       },
       "blocks": {
         "faq-1": {
@@ -374,7 +374,7 @@
         "text-4": {
           "type": "paragraph",
           "settings": {
-            "paragraph": "Each product within The Health Project brand features back-to-basics branding, making each product easier for both new and existing customers to understand. So, whether you're looking to add more whey or plant protein to your workouts or simply want to try out the brand with one of our supplement bundles, you'll find everything you need!",
+            "paragraph": "Each product within The Health Project brand features back-to-basics branding, making each product easier for both new and existing customers to understand. So, whether you're looking to add more whey or plant protein to your workouts or simply want to try out the brand with one of our supplement bundles, you'll find everything you need!",
             "text_alignment": "left",
             "title_size": 14,
             "title_color": "var(--color-grey-text)",
