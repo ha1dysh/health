@@ -384,6 +384,15 @@
         }
       },
       "block_order": ["text-1", "text-2", "text-11", "text-3", "text-4"]
+    },
+    "health-contact-us": {
+      "type": "health-contact-us",
+      "settings": {
+        "image": "shopify://shop_images/contact-us-img.jpg",
+        "title": "Let's discuss them",
+        "subtitle": "Do you have any questions?",
+        "margin_bottom": 100
+      }
     }
   },
   "order": [
@@ -395,6 +404,7 @@
     "health-gallery",
     "health-reviews",
     "health-faq",
-    "health-text"
+    "health-text",
+    "health-contact-us"
   ]
 }

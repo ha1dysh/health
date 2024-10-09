@@ -1,0 +1,115 @@
+{{ 'health-contact-us.css' | asset_url | stylesheet_tag }}
+
+<style>
+  .contact-us-{{ section.id }} {
+    margin-bottom: {{ section.settings.margin_bottom }}px;
+  }
+</style>
+
+{% javascript %}
+  const title = document.querySelector('.contact-us .title');
+  const modal = document.querySelector('.contact-us .modal-outter');
+  const close = document.querySelector('.contact-us .form-header img');
+  const body = document.querySelector('body');
+
+  title.addEventListener('click', () => {
+    modal.style.setProperty('display', 'flex');
+    body.style.setProperty('overflow', 'hidden');
+  });
+
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal || e.target === close) {
+      modal.style.setProperty('display', 'none');
+      body.style.setProperty('overflow', 'visible');
+    }
+  });
+{% endjavascript %}
+
+<div class="contact-us contact-us-{{ section.id }}">
+  <img
+    class="main-image"
+    src="{{ section.settings.image | image_url }}"
+    alt="qweqe"
+    width="auto"
+    height="auto"
+  >
+  <div class="text-wrapper">
+    <p class="subtitle">{{ section.settings.subtitle }}</p>
+
+    <div class="title-wrapper">
+      <p class="title">{{ section.settings.title }}</p>
+      <svg class="icon" width="24" height="24" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M1.35577 14.9996L15.3558 0.999573M15.3558 0.999573H6.02244M15.3558 0.999573V10.3329" stroke="#ffffff" stroke-width="1.5"/>
+      </svg>
+    </div>
+  </div>
+  <div class="modal-outter">
+    <div class="modal-inner">
+      <div class="wrapper">
+        <div class="form-header">
+          <p>Contact us</p>
+          <img src="{{ "health-x.svg" | asset_url }}" alt="close" width="24" height="24">
+        </div>
+
+        <form action="">
+          <input type="text" placeholder="Your name">
+          <input type="text" placeholder="Email">
+          <textarea name="" placeholder="Message"></textarea>
+          <button class="button-primary">Send message</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Contact us",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_title_icon",
+      "label": "Show title icon"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle"
+    },
+    {
+      "type": "select",
+      "id": "subtitle_position",
+      "label": "Subtitle position",
+      "options": [
+        { "label": "Top", "value": "column" },
+        { "label": "Bottom", "value": "column-reverse" }
+      ]
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom",
+      "label": "Margin bottom",
+      "min": 0,
+      "max": 100,
+      "default": 20
+    }
+  ],
+  "presets": [
+    {
+      "name": "Health Contact us",
+      "category": "custom"
+    }
+  ]
+}
+{% endschema %}
