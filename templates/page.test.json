@@ -68,11 +68,24 @@
         "anchor_link": "",
         "margin_bottom": 60
       }
+    },
+    "health_top_sellers_wpVFK4": {
+      "type": "health-top-sellers",
+      "settings": {
+        "title": "Top sellers qwe",
+        "description": "qwe Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur a nunc ultrices, feugiat augue vitae, accumsan quam.",
+        "collection": "protein",
+        "show_slider_controls": true,
+        "margin_top": 20,
+        "anchor_link": "",
+        "margin_bottom": 68
+      }
     }
   },
   "order": [
     "main",
     "health_hero_rCzAmM",
-    "health_collections_UVCFqa"
+    "health_collections_UVCFqa",
+    "health_top_sellers_wpVFK4"
   ]
 }
