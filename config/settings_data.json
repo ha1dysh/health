@@ -159,10 +159,18 @@
               "title": "Gmail",
               "link": "example.lorem@gmail.com"
             }
+          },
+          "social_dDYGm9": {
+            "type": "social",
+            "settings": {
+              "title": "Instagram",
+              "link": "@example.lorem"
+            }
           }
         },
         "block_order": [
-          "social_6K4hCB"
+          "social_6K4hCB",
+          "social_dDYGm9"
         ],
         "settings": {
           "logo": "shopify://shop_images/health-logo.svg",
