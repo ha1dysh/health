@@ -106,6 +106,27 @@
         "description": "",
         "margin_bottom": 20
       }
+    },
+    "health_faq_pM9pJX": {
+      "type": "health-faq",
+      "blocks": {
+        "faq_pTxUVz": {
+          "type": "faq",
+          "settings": {
+            "details": "qweqw qwe q",
+            "summary": "qwe asdqwe asdqwe asdqwe asdqwe asdqwe asd"
+          }
+        }
+      },
+      "block_order": [
+        "faq_pTxUVz"
+      ],
+      "settings": {
+        "title": "",
+        "description": "",
+        "anchor_link": "",
+        "margin_bottom": 20
+      }
     }
   },
   "order": [
@@ -113,6 +134,7 @@
     "health_hero_rCzAmM",
     "health_collections_UVCFqa",
     "health_top_sellers_wpVFK4",
-    "health_gallery_BgpF3h"
+    "health_gallery_BgpF3h",
+    "health_faq_pM9pJX"
   ]
 }
