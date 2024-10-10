@@ -31,6 +31,13 @@
     font-weight: 500;
   }
 
+  & .dots-nums-wrapper {
+    width: 25%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
   & .summary-wrapper {
     margin-bottom: 10px;
     display: flex;
