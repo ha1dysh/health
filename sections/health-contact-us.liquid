@@ -3,6 +3,14 @@
 <style>
   .contact-us-{{ section.id }} {
     margin-bottom: {{ section.settings.margin_bottom }}px;
+
+    & .text-wrapper {
+      flex-direction: {{ section.settings.subtitle_position }};
+    }
+
+    & .title-wrapper svg {
+      display: {%- if section.settings.show_title_icon -%} block {%- else -%} none {%- endif -%}
+    }
   }
 </style>
 
@@ -25,7 +33,7 @@
   });
 {% endjavascript %}
 
-<div class="contact-us contact-us-{{ section.id }}">
+<div id="{{ section.settings.anchor_link }}" class="contact-us contact-us-{{ section.id }}">
   <img
     class="main-image"
     src="{{ section.settings.image | image_url }}"
@@ -80,12 +88,18 @@
     {
       "type": "checkbox",
       "id": "show_title_icon",
-      "label": "Show title icon"
+      "label": "Show title icon",
+      "default": true
     },
     {
       "type": "text",
       "id": "subtitle",
       "label": "Subtitle"
+    },
+    {
+      "type": "text",
+      "id": "anchor_link",
+      "label": "Anchor link"
     },
     {
       "type": "select",

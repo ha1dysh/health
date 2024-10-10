@@ -60,7 +60,8 @@
     });
   });
 {% endjavascript %}
-<div class="collections-{{ section.id }}">
+
+<div id="{{ section.settings.anchor_link }}" class="collections-{{ section.id }}">
   <div>
     <div class="titles-wrapper">
       {%- for collection in section.settings.collections -%}
@@ -129,6 +130,11 @@
       "type": "checkbox",
       "id": "show_slider_controls",
       "label": "Show slider controls"
+    },
+    {
+      "type": "text",
+      "id": "anchor_link",
+      "label": "Anchor link"
     },
     {
       "type": "range",

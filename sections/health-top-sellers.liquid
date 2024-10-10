@@ -34,7 +34,7 @@
   });
 {% endjavascript %}
 
-<div class="top-sellers-{{ section.id }}">
+<div id="{{ section.settings.anchor_link }}" class="top-sellers-{{ section.id }}">
   <h2 class="section-title">{{ section.settings.title }}</h2>
   <p class="section-description">{{ section.settings.description }}</p>
 
@@ -116,6 +116,11 @@
       "max": 100,
       "min": 0,
       "default": 20
+    },
+    {
+      "type": "text",
+      "id": "anchor_link",
+      "label": "Anchor link"
     },
     {
       "type": "range",

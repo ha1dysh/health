@@ -62,6 +62,7 @@
       "settings": {
         "collections": ["perfomance", "protein", "wellbeing"],
         "show_slider_controls": true,
+        "anchor_link": "catalog",
         "margin_bottom": 100
       }
     },
@@ -72,6 +73,7 @@
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur a nunc ultrices, feugiat augue vitae, accumsan quam.",
         "collection": "top-sellers",
         "show_slider_controls": true,
+        "anchor_link": "categories",
         "margin_bottom": 100
       }
     },
@@ -115,6 +117,7 @@
         "image_position": "right",
         "slider_controls_position": "row-reverse",
         "show_slider_controls": true,
+        "anchor_link": "about",
         "margin_bottom": 100
       }
     },
@@ -200,6 +203,7 @@
       "settings": {
         "title": "What clients say about us",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur a nunc ultrices, feugiat augue vitae, accumsan quam.",
+        "anchor_link": "reviews",
         "margin_bottom": 100
       },
       "blocks": {
@@ -278,6 +282,7 @@
       "settings": {
         "title": "FAQ",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur a nunc ultrices, feugiat augue vitae, accumsan quam.",
+        "anchor_link": "faq",
         "margin_bottom": 100
       },
       "blocks": {
@@ -390,7 +395,10 @@
       "settings": {
         "image": "shopify://shop_images/contact-us-img.jpg",
         "title": "Let's discuss them",
+        "show_title_icon": true,
+        "subtitle_position": "column",
         "subtitle": "Do you have any questions?",
+        "anchor_link": "contact-us",
         "margin_bottom": 100
       }
     }

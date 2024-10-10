@@ -32,6 +32,8 @@
 
   & .text-wrapper {
     padding: 0 40px;
+    display: flex;
+    flex-direction: column;
 
     @media (min-width: 768px) {
       padding: 0 40px;

@@ -70,7 +70,7 @@
   });
 {% endjavascript %}
 
-<div class="ultimate-{{ section.id }} ultimate-wrapper">
+<div id="{{ section.settings.anchor_link }}" class="ultimate-{{ section.id }} ultimate-wrapper">
   <div class="swiper-ultimate-products">
     <div class="swiper-wrapper">
       {% for block in section.blocks %}
@@ -147,6 +147,11 @@
       "type": "checkbox",
       "id": "show_slider_controls",
       "label": "Show slider controls"
+    },
+    {
+      "type": "text",
+      "id": "anchor_link",
+      "label": "Anchor link"
     },
     {
       "type": "range",

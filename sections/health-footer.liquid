@@ -1,0 +1,72 @@
+<style>
+  .footer-{{ section.id }} {
+    & .nav-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 50px;
+
+      & ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 25px 35px;
+        list-style: none;
+
+        & a {
+            color: var(--color-grey-text);
+        }
+      }
+    }
+  }
+</style>
+
+<div class="footer footer-{{ section.id }}">
+  <div class="nav-wrapper">
+    <img src="{{ section.settings.logo | asset_url }}" alt="health logo" width="auto" height="auto">
+    <ul>
+      {% for link in section.settings.menu.links %}
+        <li>{{ link.title | link_to: link.url }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  <div class="socials"></div>
+</div>
+
+{% schema %}
+{
+  "name": "Health footer",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Select logo"
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "default": "main-menu",
+      "label": "t:sections.header.settings.menu.label"
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Social",
+      "type": "social",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "text",
+          "id": "link",
+          "label": "Link"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -153,12 +153,15 @@
   const openMenuButton = document.querySelector('.open-menu-button');
   const closeMenuButton = document.querySelector('.close-menu-button');
   const mobileNav = document.querySelector('.mobile-nav');
+  const body = document.querySelector('body');
 
   openMenuButton.addEventListener('click', () => {
     mobileNav.classList.add('open');
+    body.style.setProperty('overflow', 'hidden');
   });
   closeMenuButton.addEventListener('click', () => {
     mobileNav.classList.remove('open');
+    body.style.setProperty('overflow', 'visible');
   });
 {% endjavascript %}
 

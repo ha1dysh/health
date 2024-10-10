@@ -23,7 +23,7 @@
   });
 {% endjavascript %}
 
-<div class="faq faq-{{ section.id }}">
+<div id="{{ section.settings.anchor_link }}" class="faq faq-{{ section.id }}">
   <h2 class="title">{{ section.settings.title }}</h2>
   <p class="description">{{ section.settings.description }}</p>
 
@@ -78,6 +78,11 @@
       "type": "text",
       "id": "description",
       "label": "Description"
+    },
+    {
+      "type": "text",
+      "id": "anchor_link",
+      "label": "Anchor link"
     },
     {
       "type": "range",
