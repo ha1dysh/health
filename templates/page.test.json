@@ -116,10 +116,18 @@
             "details": "qweqw qwe q",
             "summary": "qwe asdqwe asdqwe asdqwe asdqwe asdqwe asd"
           }
+        },
+        "faq_Jrfj3K": {
+          "type": "faq",
+          "settings": {
+            "details": "qweqeqweq qw qwe qwe qw",
+            "summary": "dasdasdasdasdas asd as"
+          }
         }
       },
       "block_order": [
-        "faq_pTxUVz"
+        "faq_pTxUVz",
+        "faq_Jrfj3K"
       ],
       "settings": {
         "title": "",
