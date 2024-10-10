@@ -121,13 +121,21 @@
           "type": "faq",
           "settings": {
             "details": "qweqeqweq qw qwe qwe qw",
-            "summary": "dasdasdasdasdas asd as"
+            "summary": "dasdasdasdasdas asd asdasdasdasdasdas asd asdasdasdasdasdas asd asdasdasdasdasdas asd asdasdasdasdasdas asd asdasdasdasdasdas asd as"
+          }
+        },
+        "faq_JMgCD9": {
+          "type": "faq",
+          "settings": {
+            "details": "qweqeqweq   qwe qw",
+            "summary": "dasdasdasdasdas asd asdasdasdasdasdas asd  asd asdasdasdasdasdas asd asdasdasdasdasdas asd asdasdasdasdasdas asd as"
           }
         }
       },
       "block_order": [
         "faq_pTxUVz",
-        "faq_Jrfj3K"
+        "faq_Jrfj3K",
+        "faq_JMgCD9"
       ],
       "settings": {
         "title": "",
