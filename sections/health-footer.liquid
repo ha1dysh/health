@@ -23,7 +23,7 @@
 
 <div class="footer footer-{{ section.id }}">
   <div class="nav-wrapper">
-    <img src="{{ section.settings.logo | asset_url }}" alt="health logo" width="auto" height="auto">
+    <img src="{{ section.settings.logo | image_url }}" alt="health logo" loading="lazy" width="151" height="35">
     <ul>
       {% for link in section.settings.menu.links %}
         <li>{{ link.title | link_to: link.url }}</li>
