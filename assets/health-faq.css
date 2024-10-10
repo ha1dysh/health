@@ -27,72 +27,66 @@
     background-color: var(--color-border);
   }
 
-  & .details {
-    font-weight: 500;
-  }
+  & .block-item {
+    & .summary-wrapper {
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+    }
 
-  & .dots-nums-wrapper {
-    width: 25%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  & .summary-wrapper {
-    margin-bottom: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px;
-    cursor: pointer;
-
-    & .dots {
+    & .dot {
       display: none;
 
       @media (min-width: 768px) {
         display: block;
       }
-    }
-
-    & .numbering {
-      display: none;
 
       @media (min-width: 1366px) {
+        margin-right: 15%;
+      }
+    }
+
+    & .numbers {
+      display: none;
+      color: var(--color-grey-text);
+
+      @media (min-width: 1366px) {
+        margin-right: 15%;
         display: block;
       }
     }
 
-    & button {
-      border: none;
-      background-color: transparent;
-      outline: none;
-      cursor: pointer;
+    & .summary {
+      font-weight: 500;
     }
 
-    & .plus,
-    .minus {
+    & .open-close {
       min-width: 24px;
       min-height: 24px;
+      margin-left: auto;
+      border: none;
+      background-color: white;
+      cursor: pointer;
+
+      & .plus,
+      .minus {
+        display: none;
+
+        &.active {
+          display: block;
+        }
+      }
+    }
+
+    & .details {
       display: none;
+      color: var(--color-grey-text);
 
       &.active {
         display: block;
       }
-    }
-  }
-
-  & .summary {
-    color: var(--color-grey-text);
-
-    visibility: hidden;
-    opacity: 0;
-    max-height: 0;
-    transition: all 0.5s ease-in-out;
-
-    &.active {
-      visibility: visible;
-      opacity: 1;
-      max-height: 300px;
     }
   }
 }

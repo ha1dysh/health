@@ -10,15 +10,20 @@
   const summaries = document.querySelectorAll('.faq .summary-wrapper');
   const details = document.querySelectorAll('.faq .details');
 
-  summaries.forEach((summery) => {
-    summery.addEventListener('click', (e) => {
-      const summaryId = summery.dataset.summaryId;
-      const summary = document.querySelector(`.faq .summary[data-summary-id="${summaryId}"]`);
-      const summaryIcons = summery.querySelectorAll('img');
-      summaryIcons.forEach((summaryIcon) => {
-        summaryIcon.classList.toggle('active');
+  summaries.forEach((summary) => {
+    summary.addEventListener('click', (e) => {
+      const summaryId = e.currentTarget.dataset.blockId;
+
+      details.forEach((detail) => {
+        if (detail.dataset.blockId === summaryId) {
+          detail.classList.toggle('active');
+        }
       });
-      summary.classList.toggle('active');
+
+      const plus = summary.querySelector('.plus');
+      const minus = summary.querySelector('.minus');
+      plus.classList.toggle('active');
+      minus.classList.toggle('active');
     });
   });
 {% endjavascript %}
@@ -28,38 +33,27 @@
   <p class="description">{{ section.settings.description }}</p>
 
   {% for block in section.blocks %}
-    {%- if forloop.first -%}
-      <div class="line"></div>
-    {%- endif -%}
+    {%- if forloop.first -%}<div class="line"></div>{%- endif -%}
 
-    <div class="faq-item">
-      <div class="summary-wrapper" data-summary-id="{{ block.id }}">
-        <div class="dots-nums-wrapper">
-          <div class="dots">
-            <svg width="12" height="13" viewBox="0 0 12 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="6" cy="6.5" r="6" fill="#42ABDE"/>
-            </svg>
-          </div>
+    <div class="block-item">
+      <div class="summary-wrapper" data-block-id="{{ block.id }}">
+        <img class="dot" src="{{ 'health-dot.svg' | asset_url }}" alt="dot icon" width="12" height="12">
 
-          <div class="numbering">
-            {%- if forloop.index < 10 -%}
-              <span>0{{ forloop.index }}</span>
-            {%- else -%}
-              <span>{{ forloop.index }}</span>
-            {%- endif -%}
-            <span></span>
-          </div>
-        </div>
+        {%- if forloop.index < 10 -%}
+          <div class="numbers">0{{ forloop.index }}</div>
+        {%- else -%}
+          <div class="numbers">{{ forloop.index }}</div>
+        {%- endif -%}
 
-        <h3 class="details">{{ block.settings.details }}</h3>
+        <div class="summary">{{ block.settings.summary }}</div>
 
-        <button>
-          <img class="plus active" src="{{ 'plus.svg' | asset_url }}" alt="plus" width="24" height="24">
-          <img class="minus" src="{{ 'minus.svg' | asset_url }}" alt="plus" width="24" height="24">
+        <button class="open-close">
+          <img class="plus active" src="{{ 'plus.svg' | asset_url }}" alt="open icon" width="24" height="24">
+          <img class="minus" src="{{ 'minus.svg' | asset_url }}" alt="open icon" width="24" height="24">
         </button>
       </div>
 
-      <p class="summary" data-summary-id="{{ block.id }}">{{ block.settings.summary }}</p>
+      <p class="details" data-block-id="{{ block.id }}">{{ block.settings.details }}</p>
     </div>
 
     <div class="line"></div>
@@ -102,13 +96,13 @@
       "settings": [
         {
           "type": "text",
-          "id": "details",
-          "label": "Details"
+          "id": "summary",
+          "label": "Summary"
         },
         {
           "type": "text",
-          "id": "summary",
-          "label": "Summary"
+          "id": "details",
+          "label": "Details"
         }
       ]
     }

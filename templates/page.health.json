@@ -298,36 +298,36 @@
         "faq-1": {
           "type": "faq",
           "settings": {
-            "details": "Lorem ipsum dolor sit amet,  adipiscing elit. Curabitur a nunc ultrices?",
-            "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur a nunc ultrices, feugiat augue vitae, accumsan quam."
+            "summary": "Lorem ipsum dolor sit amet,  adipiscing elit. Curabitur a nunc ultrices?",
+            "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur a nunc ultrices, feugiat augue vitae, accumsan quam."
           }
         },
         "faq-2": {
           "type": "faq",
           "settings": {
-            "details": "Lorem ipsum dolor sit adipiscing elit. Curabitur a nunc ultrices?",
-            "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur a nunc ultrices, feugiat augue vitae, accumsan quam."
+            "summary": "Lorem ipsum dolor sit adipiscing elit. Curabitur a nunc ultrices?",
+            "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur a nunc ultrices, feugiat augue vitae, accumsan quam."
           }
         },
         "faq-3": {
           "type": "faq",
           "settings": {
-            "details": "olor sit amet, consectetur adipiscing elit. Curabitur a nunc ultrices?",
-            "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur a nunc ultrices, feugiat augue vitae, accumsan quam."
+            "summary": "olor sit amet, consectetur adipiscing elit. Curabitur a nunc ultrices?",
+            "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur a nunc ultrices, feugiat augue vitae, accumsan quam.  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur a nunc ultrices, feugiat augue vitae, accumsan quam.  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur a nunc ultrices, feugiat augue vitae, accumsan quam.  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur a nunc ultrices, feugiat augue vitae, accumsan quam."
           }
         },
         "faq-4": {
           "type": "faq",
           "settings": {
-            "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur a nunc ultrices?",
-            "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur a nunc ultrices, feugiat augue vitae, accumsan quam."
+            "summary": "Lorem adipiscing elit. Curabitur a nunc ultrices?",
+            "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur a nunc ultrices, feugiat augue vitae, accumsan quam."
           }
         },
         "faq-5": {
           "type": "faq",
           "settings": {
-            "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur a nunc ultrices?",
-            "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur a nunc ultrices, feugiat augue vitae, accumsan quam."
+            "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur a nunc ultrices?",
+            "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur a nunc ultrices, feugiat augue vitae, accumsan quam."
           }
         }
       },
