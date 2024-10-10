@@ -151,7 +151,6 @@
 
 {% javascript %}
   const openMenuButton = document.querySelector('.open-menu-button');
-  const closeMenuButton = document.querySelector('.close-menu-button');
   const mobileNav = document.querySelector('.mobile-nav');
   const body = document.querySelector('body');
 
@@ -159,9 +158,13 @@
     mobileNav.classList.add('open');
     body.style.setProperty('overflow', 'hidden');
   });
-  closeMenuButton.addEventListener('click', () => {
-    mobileNav.classList.remove('open');
-    body.style.setProperty('overflow', 'visible');
+
+  mobileNav.addEventListener('click', (e) => {
+    if (e.target.tagName === 'A' || e.target.tagName === 'IMG') {
+      console.log('a tag');
+      mobileNav.classList.remove('open');
+      body.style.setProperty('overflow', 'visible');
+    }
   });
 {% endjavascript %}
 
