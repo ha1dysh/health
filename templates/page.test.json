@@ -80,12 +80,39 @@
         "anchor_link": "",
         "margin_bottom": 68
       }
+    },
+    "health_gallery_BgpF3h": {
+      "type": "health-gallery",
+      "blocks": {
+        "slide_image_HPMBfG": {
+          "type": "slide_image",
+          "settings": {
+            "image": "shopify://shop_images/gallery-img-3.jpg"
+          }
+        },
+        "slide_image_4dCXdd": {
+          "type": "slide_image",
+          "settings": {
+            "image": "shopify://shop_images/gallery-img-1.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "slide_image_HPMBfG",
+        "slide_image_4dCXdd"
+      ],
+      "settings": {
+        "title": "",
+        "description": "",
+        "margin_bottom": 20
+      }
     }
   },
   "order": [
     "main",
     "health_hero_rCzAmM",
     "health_collections_UVCFqa",
-    "health_top_sellers_wpVFK4"
+    "health_top_sellers_wpVFK4",
+    "health_gallery_BgpF3h"
   ]
 }
