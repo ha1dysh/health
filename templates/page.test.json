@@ -1,0 +1,78 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
+{
+  "layout": "health-layout",
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "health_hero_rCzAmM": {
+      "type": "health-hero",
+      "blocks": {
+        "slide_rDRT6k": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/health-creatine.png",
+            "product": "the-health-project-essential-stack-4",
+            "slide-text": "Your heading",
+            "desc": "",
+            "slide-heading-font-size": 20,
+            "slide-font-weight": "normal",
+            "desc-size": 15
+          }
+        },
+        "slide_KnKcYx": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/creatine-monohydrate.png",
+            "product": "creatine-monohydrate",
+            "slide-text": "Your heading",
+            "desc": "",
+            "slide-heading-font-size": 20,
+            "slide-font-weight": "normal",
+            "desc-size": 15
+          }
+        }
+      },
+      "block_order": [
+        "slide_rDRT6k",
+        "slide_KnKcYx"
+      ],
+      "settings": {
+        "background_image": "shopify://shop_images/health-hero-bg.png",
+        "autoplay_delay": 20,
+        "margin_bottom": 20
+      }
+    },
+    "health_collections_UVCFqa": {
+      "type": "health-collections",
+      "settings": {
+        "collections": [
+          "protein",
+          "perfomance",
+          "wellbeing"
+        ],
+        "show_slider_controls": true,
+        "anchor_link": "",
+        "margin_bottom": 60
+      }
+    }
+  },
+  "order": [
+    "main",
+    "health_hero_rCzAmM",
+    "health_collections_UVCFqa"
+  ]
+}
