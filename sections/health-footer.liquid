@@ -1,10 +1,13 @@
 <style>
   .footer-{{ section.id }} {
+    padding: 20px;
+
     & .nav-wrapper {
       display: flex;
       flex-direction: column;
       align-items: center;
       gap: 50px;
+      margin-bottom: 30px;
 
       & ul {
         display: flex;
@@ -16,6 +19,44 @@
         & a {
             color: var(--color-grey-text);
         }
+      }
+    }
+
+    & .socials {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      & .social-block {
+        height: 172px;
+        padding: 25px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        border-radius: 12px;
+        background-color: var(--color-card)
+      }
+
+      & .title {
+        color: var(--color-grey-text);
+      }
+
+      & a {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 18px;
+        color: var(--color-accent-blue);
+      }
+
+      & .arrow-wrapper {
+        width: 40px;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        background-color: #fff;
       }
     }
   }
@@ -31,7 +72,20 @@
     </ul>
   </div>
 
-  <div class="socials"></div>
+  <div class="socials">
+    {% for block in section.blocks %}
+      <div class="social-block">
+        <p class="title">{{ block.settings.title }}</p>
+
+        <a href="https://{{ block.settings.link }}">
+          <span>{{ block.settings.link }}</span>
+          <div class="arrow-wrapper">
+            <img src="{{ 'health-arrow-ne.svg' | asset_url }}" alt="north east arrow" width="14" height="14">
+          </div>
+        </a>
+      </div>
+    {% endfor %}
+  </div>
 </div>
 
 {% schema %}
