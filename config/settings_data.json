@@ -166,11 +166,19 @@
               "title": "Instagram",
               "link": "@example.lorem"
             }
+          },
+          "social_kmaTwz": {
+            "type": "social",
+            "settings": {
+              "title": "Facebook",
+              "link": "@example.lorem"
+            }
           }
         },
         "block_order": [
           "social_6K4hCB",
-          "social_dDYGm9"
+          "social_dDYGm9",
+          "social_kmaTwz"
         ],
         "settings": {
           "logo": "shopify://shop_images/health-logo.svg",
